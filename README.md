@@ -85,3 +85,9 @@ terrangafood/
 ## Licence
 
 Projet pédagogique — Usage académique uniquement.
+
+## Fonctionnalités existantes
+
+- Affichage des restaurants
+- Détail des restaurants
+- Affichage des plats
