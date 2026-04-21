@@ -1,3 +1,8 @@
+/* Ce fichier est le point d'entrée principal de l'application Express. 
+Il configure les middlewares globaux, définit les routes de base, 
+gère les erreurs et établit la connexion à MongoDB avant de démarrer le serveur. 
+C'est ici que toutes les fonctionnalités de l'API sont orchestrées pour assurer un fonctionnement fluide et efficace.*/
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -30,6 +35,7 @@ app.get('/', (req, res) => {
     }
   });
 });
+
 
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/plats', platRoutes);
