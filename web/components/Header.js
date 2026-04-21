@@ -4,12 +4,20 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-content">
+        
         <Link href="/" className="header-logo">
           🍛 Terranga<span>Food</span>
         </Link>
+
+        {/* 👇 AJOUT DU NOM D'ÉQUIPE */}
+        <div className="header-team">
+          TEC Vibes
+        </div>
+
         <nav className="header-nav">
           <Link href="/">Restaurants</Link>
         </nav>
+
       </div>
     </header>
   );
