@@ -3,7 +3,7 @@
 Plateforme de commande de plats auprès de restaurants dakarois.
 
 **Projet pédagogique** — Architecture Logicielle 2 — L3 Génie Logiciel — UCAD / ESP
-
+TerrangaFood - API de commande de plats sénégalais
 ## Stack technique
 
 | Module | Stack |
@@ -35,7 +35,7 @@ cp .env.example .env
 cd api
 npm install
 
-# Installer les dépendances Frontend
+# installer les composants
 cd ../web
 npm install
 ```
