@@ -85,3 +85,14 @@ terrangafood/
 ## Licence
 
 Projet pédagogique — Usage académique uniquement.
+
+### ✔ Ajouter section “Fonctionnalités existantes”
+
+```md id="qa1"
+## ✅ Fonctionnalités existantes
+
+- Authentification utilisateur
+- Gestion des produits
+- Panier d’achat
+- API REST fonctionnelle
+- Interface utilisateur responsive
