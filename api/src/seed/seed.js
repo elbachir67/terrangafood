@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const path = require('path');
 const Restaurant = require('../models/Restaurant');
 const Plat = require('../models/Plat');
 
-dotenv.config({ path: '../../.env' });
-
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 const restaurants = [
   {
     nom: 'Chez Fatou',
@@ -99,6 +99,7 @@ const platsParRestaurant = {
 
 async function seed() {
   try {
+    console.log('Tentative de connexion à MongoDB avec l\'URI :', process.env.MONGODB_URI);
     await mongoose.connect(process.env.MONGODB_URI);
     console.log('✅ Connecté à MongoDB');
 
