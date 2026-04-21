@@ -1,3 +1,5 @@
+//le fichier app.js est le point d'entrée de l'application Express. 
+// Il configure les routes, les middlewares et la connexion à MongoDB.
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');

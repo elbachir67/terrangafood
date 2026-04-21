@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const path = require('path');
 const Restaurant = require('../models/Restaurant');
 const Plat = require('../models/Plat');
 
-dotenv.config({ path: '../../.env' });
+// Configuration de dotenv avec un chemin absolu vers la racine du dossier api
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 const restaurants = [
   {
@@ -99,19 +101,24 @@ const platsParRestaurant = {
 
 async function seed() {
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log('✅ Connecté à MongoDB');
+    const uri = process.env.MONGODB_URI;
+    if (!uri) {
+      throw new Error("MONGODB_URI est undefined. Vérifiez que le fichier .env est à la racine de /api.");
+    }
 
-    // Nettoyer les collections existantes
+    await mongoose.connect(uri);
+    console.log('✅ Connecté à MongoDB pour le peuplement...');
+
+    // Nettoyage des collections existantes pour repartir de zéro
     await Restaurant.deleteMany({});
     await Plat.deleteMany({});
-    console.log('🗑️  Collections nettoyées');
+    console.log('🗑️ Collections nettoyées.');
 
-    // Insérer les restaurants
+    // Insertion des restaurants
     const savedRestaurants = await Restaurant.insertMany(restaurants);
-    console.log(`🏪 ${savedRestaurants.length} restaurants insérés`);
+    console.log(`🏪 ${savedRestaurants.length} restaurants insérés.`);
 
-    // Insérer les plats avec les références aux restaurants
+    // Insertion des plats liés aux restaurants par leur ID
     let totalPlats = 0;
     for (const restaurant of savedRestaurants) {
       const platsData = platsParRestaurant[restaurant.nom];
@@ -124,12 +131,11 @@ async function seed() {
         totalPlats += platsAvecRef.length;
       }
     }
-    console.log(`🍽️  ${totalPlats} plats insérés`);
+    console.log(`🍽️ ${totalPlats} plats insérés.`);
 
-    console.log('\n✅ Seed terminé avec succès !');
-    console.log('Vous pouvez maintenant lancer le serveur avec : npm run dev');
-
+    console.log('\n✅ Base de données peuplée avec succès !');
     await mongoose.disconnect();
+    process.exit(0);
   } catch (error) {
     console.error('❌ Erreur lors du seed :', error.message);
     process.exit(1);
