@@ -1,3 +1,25 @@
+/**
+ * ============================================
+ * FICHIER PRINCIPAL DE L'API
+ * ============================================
+ * 
+ * Rôle : Configuration et initialisation du serveur Express
+ * 
+ * Ce fichier est responsable de :
+ * - Configurer le serveur Express et ses middlewares (CORS, JSON, logging)
+ * - Établir la connexion à la base de données MongoDB
+ * - Enregistrer toutes les routes de l'API (/api/restaurants, /api/plats)
+ * - Gérer les erreurs globales via un middleware dédié
+ * - Démarrer le serveur sur le port défini dans les variables d'environnement
+ * 
+ * Structure :
+ *   - Imports des dépendances et du code métier
+ *   - Configuration des middlewares globaux
+ *   - Déclaration des routes
+ *   - Configuration du traitement des erreurs
+ *   - Connexion DB et lancement du serveur
+ */
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
