@@ -1,5 +1,4 @@
-# 🍛 TerrangaFood
-
+# 🍛 TerrangaFood-code-chill# 
 Plateforme de commande de plats auprès de restaurants dakarois.
 
 **Projet pédagogique** — Architecture Logicielle 2 — L3 Génie Logiciel — UCAD / ESP
@@ -24,8 +23,8 @@ Plateforme de commande de plats auprès de restaurants dakarois.
 
 ```bash
 # Cloner le dépôt
-git clone https://github.com/[votre-pseudo]/terrangafood-[equipe].git
-cd terrangafood-[equipe]
+git clone https://github.com/Anna-hue-ops/terrangafood-code-chill.git
+cd terrangafood-code-chill
 
 # Configurer les variables d'environnement
 cp .env.example .env
