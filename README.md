@@ -1,4 +1,4 @@
-# 🍛 TerrangaFood
+# 🍛 Les Teranga Devs
 
 Plateforme de commande de plats auprès de restaurants dakarois.
 
