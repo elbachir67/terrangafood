@@ -1,7 +1,25 @@
 # 🍛 TerrangaFood
 
 Plateforme de commande de plats auprès de restaurants dakarois.
+## Démarrage rapide
 
+1. Cloner le dépôt :
+   git clone https://github.com/Anna-hue-ops/terrangafood-code-chill.git
+
+2. Installer les dépendances :
+   cd api && npm install
+   cd ../web && npm install
+
+3. Configurer l'environnement :
+   cp .env.example .env
+
+4. Lancer le backend :
+   cd api && npm run dev
+
+5. Lancer le frontend :
+   cd web && npm run dev
+
+6. Ouvrir http://localhost:3000
 **Projet pédagogique** — Architecture Logicielle 2 — L3 Génie Logiciel — UCAD / ESP
 
 ## Stack technique
