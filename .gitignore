@@ -1,5 +1,6 @@
 # Dépendances
 node_modules/
+//MONGODB_URI=mongodb+srv://abdou-drame:Iniesta500@cluster0.ewibmle.mongodb.net/terrangafood?retryWrites=true&w=majority
 
 # Variables d'environnement (ne jamais commiter !)
 .env

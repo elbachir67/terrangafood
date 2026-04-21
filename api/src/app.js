@@ -1,8 +1,19 @@
+/**
+ * @file app.js
+ * @description Point d'entrée principal du serveur backend TerrangaFood.
+ * Ce fichier configure l'application Express, établit la connexion à MongoDB Atlas,
+ * définit les middlewares globaux (CORS, JSON, Error Handling) et centralise
+ * les routes de l'API (Restaurants et Plats).
+ * * @author Abdou Drame (DB )
+ * @version 1.0.0
+ */
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
+require('dotenv').config();
 
 const restaurantRoutes = require('./routes/restaurants');
 const platRoutes = require('./routes/plats');
