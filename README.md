@@ -13,6 +13,13 @@ Plateforme de commande de plats auprès de restaurants dakarois.
 | Base de données | MongoDB (local ou Atlas) |
 
 ## Démarrage rapide
+1. **Cloner le dépôt**  
+   `git clone https://github.com/Tbyb/terrangafood-les-sentinelles.git`
+
+2. **Installer les dépendances**  
+   ```bash
+   cd api && npm install
+   cd ../web && npm install
 
 ### Prérequis
 
