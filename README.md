@@ -1,3 +1,7 @@
+# Nom de l'équipe : 
+
+Team PKDMK
+
 # 🍛 TerrangaFood
 
 Plateforme de commande de plats auprès de restaurants dakarois.
