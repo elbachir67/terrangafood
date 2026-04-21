@@ -1,3 +1,8 @@
+# Nom de l'équipe 
+
+TEC VIBES
+
+
 # 🍛 TerrangaFood
 
 Plateforme de commande de plats auprès de restaurants dakarois.
@@ -85,3 +90,9 @@ terrangafood/
 ## Licence
 
 Projet pédagogique — Usage académique uniquement.
+
+## Fonctionnalités existantes
+
+- Affichage des restaurants
+- Détail des restaurants
+- Affichage des plats
