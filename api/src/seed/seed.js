@@ -6,6 +6,7 @@ require('dotenv').config({
   path: require('path').resolve(__dirname, '../../../.env')
 });
 
+dotenv.config({ path: '../.env' });
 
 const restaurants = [
   {
