@@ -11,4 +11,4 @@ router.get('/:id', commandeController.getById);
 router.patch('/:id/statut', commandeController.updateStatut);
 
 router.delete('/:id', commandeController.delete);
-module.express = router;
+module.exports = router;
