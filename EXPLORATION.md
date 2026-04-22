@@ -22,10 +22,15 @@
 - Fichiers ignorés par Git : node_modules, .env, .next
 
 ### Tests fonctionnels (par QA -- [ Khady ])
-- Fonctionnalités testées : Aucun test automatisé implémenté (tests manuels uniquement)
-- Outils de test : Non configurés (pas de Jest, Cypress, ou autre framework)
-- Bugs trouvés : Non documentés
-- Recommandations : Implémenter une suite de tests automatisés pour les endpoints API et les composants frontend
+- Fonctionnalités testées : Affichage liste restaurants, navigation vers détails, affichage plats par restaurant, endpoints API basiques
+- Outils de test : Tests manuels via navigateur et Postman
+- Bugs trouvés : 
+  * Problème de chargement des images sur certaines fiches restaurants
+  * Timeout occasionnel sur l'endpoint GET /api/plats/restaurant/:id
+- Recommandations : 
+  * Implémenter Jest pour les tests unitaires des contrôleurs
+  * Ajouter Cypress pour les tests E2E du frontend
+  * Mettre en place des tests d'intégration pour les API
 
 ### Synthèse (par CP -- [ Anastasia])
 - Ce qui fonctionne bien : affichage restaurants, navigation, connexion MongoDB
