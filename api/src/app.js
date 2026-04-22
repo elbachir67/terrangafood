@@ -4,15 +4,6 @@
  * charge les variables d'environnement, définit les routes principales
  * et établit la connexion avec la base de données MongoDB.
  */
-const commandeRoutes = require('./routes/commandes');
-// Brancher les routes 
-app.use('/api/commandes', commandeRoutes);
-// mettre a jour l'objet endpoints de la route d'accueil
-endpoints: {
-    restaurants: '/api/restaurants'
-    plats: '/api/plats'         
-    commandes: '/api/commandes'      
-}
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -21,6 +12,7 @@ const dotenv = require('dotenv');
 
 const restaurantRoutes = require('./routes/restaurants');
 const platRoutes = require('./routes/plats');
+const commandeRoutes = require('./routes/commandes');
 const errorHandler = require('./middleware/errorHandler');
 
 // Charger les variables d'environnement
@@ -41,13 +33,15 @@ app.get('/', (req, res) => {
     version: '0.0.0',
     endpoints: {
       restaurants: '/api/restaurants',
-      plats: '/api/plats'
+      plats: '/api/plats',
+      commandes: '/api/commandes'
     }
   });
 });
 
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/plats', platRoutes);
+app.use('/api/commandes', commandeRoutes);
 
 // --- Gestion des erreurs ---
 app.use(errorHandler);
