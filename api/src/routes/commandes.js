@@ -6,7 +6,7 @@ router.post('/', commandeController.create);
 
 router.get('/', commandeController.getAll);
 
-router.get('/:id', commandeController.getAll);
+router.get('/:id', commandeController.getById);
 
 router.patch('/:id/statut', commandeController.updateStatut);
 
