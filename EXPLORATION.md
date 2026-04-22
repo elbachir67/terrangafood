@@ -2,17 +2,19 @@
 2
 3 ## Équipe : [ code-chill ]
 4
-5 ### Architecture Backend ( par DB -- [ Prénom ])
-6 - Nombre de modèles : ...
+5 ### Architecture Backend ( par DB -- [ Iveliane])
+- Nombre de modèles : 2 (Restaurant, Plat)
+- Endpoints existants : 
+  * Restaurants : GET /api/restaurants, GET /api/restaurants/:id, POST /api/restaurants, PUT /api/restaurants/:id, DELETE /api/restaurants/:id
+  * Plats : GET /api/plats, GET /api/plats/restaurant/:restaurantId, GET /api/plats/:id, POST /api/plats, PUT /api/plats/:id, DELETE /api/plats/:id
+- Pattern utilisé : MVC
+- Base de données : MongoDB avec Mongoose ODM
+- Relations : Un restaurant peut avoir plusieurs plats (relation 1-N)
 
 14 / 16 2025–2026
 
 Architecture Logicielle 2 – L3 GL Lab 0 – Git & Découverte
 
-7 - Endpoints existants : GET / api / restaurants , GET / api / restaurants /: id ,
-...
-8 - Pattern utilisé : MVC
-9
 10 ### Architecture Frontend ( par DF -- [ Cabrel ])
 11 - Nombre de pages : 2 (page accueil + page détail restaurant dynamique)
 12 - Composants réutilisables : Header , RestaurantCard , PlatCard
