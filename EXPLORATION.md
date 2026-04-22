@@ -19,8 +19,10 @@
 - Composants réutilisables : Header.js, RestaurantCard.js, PlatCard.js
 - Méthode d'appel API : fetch dans lib/api.js avec 4 fonctions (getRestaurants, getRestaurant, getPlatsByRestaurant, getPlats), cache: 'no-store'
 
-### Configuration (par DO -- [Prénom])
-- [À compléter par votre membre DO]
+### Configuration (par DO -- Magor Gueye)
+- Variables d'environnement : MONGODB_URI, 3001
+- Scriptes npm : dev, start , seed
+- Fichiers ignores par Git : node_modules, .env , .next 
 
 ### Tests fonctionnels (par QA -- Boye)
 - Fonctionnalités testées :
