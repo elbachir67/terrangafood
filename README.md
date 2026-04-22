@@ -1,6 +1,6 @@
-# 🍛 TerrangaFood
+# 🍛 TerrangaFood — Equipe our-group —
 
-Plateforme de commande de plats auprès de restaurants dakarois.
+Plateforme de commande de plats auprès de restaurants saint louis.
 
 **Projet pédagogique** — Architecture Logicielle 2 — L3 Génie Logiciel — UCAD / ESP
 
@@ -85,3 +85,8 @@ terrangafood/
 ## Licence
 
 Projet pédagogique — Usage académique uniquement.
+
+## Fonctionnalités existantes
+- Affichage de la liste des restaurants
+- Page de détail d’un restaurant avec ses plats
+- API REST : endpoints /restaurants et /plats
