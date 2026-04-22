@@ -1,4 +1,4 @@
-# 🍛 TerrangaFood
+# 🍛 TerrangaFood-les-heros
 
 Plateforme de commande de plats auprès de restaurants dakarois.
 
