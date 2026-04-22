@@ -4,6 +4,7 @@
  * charge les variables d'environnement, définit les routes principales
  * et établit la connexion avec la base de données MongoDB.
  */
+//ligne 1 : Ajoute de l'import en haut du fichier
 const commandeRoutes = require('./routes/commandes');
 // Brancher les routes 
 app.use('/api/commandes', commandeRoutes);
