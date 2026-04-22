@@ -13,10 +13,10 @@ Architecture Logicielle 2 – L3 GL Lab 0 – Git & Découverte
 ...
 8 - Pattern utilisé : MVC
 9
-10 ### Architecture Frontend ( par DF -- [ Prénom ])
-11 - Nombre de pages : ...
+10 ### Architecture Frontend ( par DF -- [ Cabrel ])
+11 - Nombre de pages : 2 (page accueil + page détail restaurant dynamique)
 12 - Composants réutilisables : Header , RestaurantCard , PlatCard
-13 - Méthode d’appel API : fetch dans lib / api . js
+13 - Méthode d'appel API : fetch avec gestion des erreurs dans lib / api . js (4 endpoints : getRestaurants , getRestaurant , getPlats , getPlatsByRestaurant)
 14
 15 ### Configuration ( par DO -- [ Prénom ])
 16 - Variables d ’environnement : MONGODB_URI , PORT
