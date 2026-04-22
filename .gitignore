@@ -1,6 +1,7 @@
 # Dépendances
 node_modules/
 
+
 # Variables d'environnement (ne jamais commiter !)
 .env
 
