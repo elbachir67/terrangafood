@@ -85,3 +85,44 @@ terrangafood/
 ## Licence
 
 Projet pédagogique — Usage académique uniquement.
+
+## Fonctionnalités existantes
+
+- Affichage des restaurants
+- Détail des restaurants
+- Affichage des plats
+
+
+
+Le fichier .env.example  
+Ce fichier contient la “carte d’idente” technique de notre projet, permettant a l’application de savoir ou se trouve la base de donnees et sur quel port elle doit communiquer. 
+
+Les variables necessaire a configurer dans notre fichiers sont : 
+
+MONGODB_URI : l’adresse de connexion a notre base de donnees MongoDB, qu’elle soit local ou hebergee sur MongoDB Atlas. 
+
+PORT : Le numero du port reseau sur lequel le serveur de l’API Express va s’executer. 
+
+NEXT_PUBLIC_API_URL : L’url complete de l’API utilisee par le frontend pour communiquer avec le backend. 
+
+
+Le fichier de configuration .gitignore 
+Ce fichier contient les Dependances (node_modules/) ,les variables d’environnement(.env) , les fichiers de BUILD (.next/ , out/, ...) , les Logs (.log) et les fichiers systemes et IDE ( .DS_Stores, .vscode/). 
+
+Il existe trois raisons principales pour ignorer ces elements : 
+
+La securite : Ignorer le fichier .env est crucial. S'il était envoyé sur un serveur public (comme GitHub), n'importe qui pourrait voler vos accès à la base de données MongoDB. 
+
+Le Poids : Le dossier node_modules/ peut contenir des milliers de fichiers et peser plusieurs centaines de Mo. 
+
+La Proprete : Les fichiers de "Build" et les "Logs" changent à chaque fois que nous  lancons l'application. 
+
+Le fichier de configuration package.json 
+
+les fichiers package.json l'un contient uniquement des suivant :
+-->dotenv 
+-->mongodb
+et pour l'autre package.json contient trois scrips pour gérer le lancement de mon application:
+--> "dev" : "nodemon src/app.js"
+--> "start" : "node src/app.js"
+--> "seed" : "node -r dotenv/config src/seed/seed.js"
