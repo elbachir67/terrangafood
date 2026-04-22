@@ -6,6 +6,7 @@
 
 |Ahmadou oury kindi ba    |  CP                     |ahmadou-oury-kindi   |
 |Papa Dial SENE           |  DF                     |dial-sene            |
-BOYE                      | QA                      | ELCRAFTER04
+BOYE                      | QA                      | ELCRAFTER04          |
 |Ibrahima Tall            |  DB                     |ibrahima100          |
 |magor gueye              | DO                      |mqgor                |
+|                    
