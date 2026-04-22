@@ -12,8 +12,12 @@
   - DELETE /api/restaurants/:id
 - Pattern utilisé : MVC
 
-### Architecture Frontend (par DF -- [Prénom])
-- [À compléter par votre membre DF]
+### Architecture Frontend (par DF -- Dial Sene)
+- Nombre de pages : 2
+  - `/` → app/page.js — Page d'accueil, affiche la liste des restaurants
+  - `/restaurants/[id]` → app/restaurants/[id]/page.js — Page de détail avec le menu
+- Composants réutilisables : Header.js, RestaurantCard.js, PlatCard.js
+- Méthode d'appel API : fetch dans lib/api.js avec 4 fonctions (getRestaurants, getRestaurant, getPlatsByRestaurant, getPlats), cache: 'no-store'
 
 ### Configuration (par DO -- [Prénom])
 - [À compléter par votre membre DO]
