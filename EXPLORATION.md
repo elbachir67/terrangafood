@@ -26,4 +26,16 @@
 - [À compléter par votre membre QA]
 
 ### Synthèse (par CP -- [Prénom])
-- [À compléter par votre membre CP]
+- Ce qui marche : 
+L'API Express répond correctement : GET /api/restaurants retourne la liste des restaurants (ex. Chez Fatou, Le Lamantin avec leurs champs nom, cuisine, adresse, note), et la page de détail restaurant affiche les plats associés.
+Le frontend Next.js s'affiche sur http://localhost:3000 : la page d'accueil liste les restaurants et un clic sur un restaurant ouvre sa page de détail avec les plats.
+La connexion à MongoDB fonctionne (message Connecté à MongoDB avec succès confirmé au démarrage).
+L'architecture MVC est en place : 2 modèles Mongoose (Restaurant.js, Plat.js), 2 fichiers de routes (restaurants.js, plats.js), 2 contrôleurs (restaurantController.js, platController.js), 1 middleware (errorHandler.js).
+Le script npm run seed peuple la base avec des données initiales.
+Les composants frontend sont réutilisables : Header.js, RestaurantCard.js, PlatCard.js.
+La configuration via .env / .env.example est sécurisée (.env absent du dépôt grâce au .gitignore).
+
+- Ce qui manque (Le 30%): 
+Les routes de gestion des commandes : aucun modèle, aucune route, aucun contrôleur Commande n'existe dans le projet.
+Le suivi des statuts de commande (en préparation, en livraison, livrée).
+La fonctionnalité de recherche de restaurants ou de plats.
