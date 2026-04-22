@@ -4,6 +4,7 @@
  * charge les variables d'environnement, définit les routes principales
  * et établit la connexion avec la base de données MongoDB.
  */
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
