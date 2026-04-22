@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 
 const restaurantRoutes = require('./routes/restaurants');
 const platRoutes = require('./routes/plats');
+const commandeRoutes = require('./routes/commandes'); // ✅ Import ajouté
 const errorHandler = require('./middleware/errorHandler');
 
 // Charger les variables d'environnement
@@ -26,13 +27,15 @@ app.get('/', (req, res) => {
     version: '0.0.0',
     endpoints: {
       restaurants: '/api/restaurants',
-      plats: '/api/plats'
+      plats: '/api/plats',
+      commandes: '/api/commandes' // ✅ Endpoints mis à jour
     }
   });
 });
 
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/plats', platRoutes);
+app.use('/api/commandes', commandeRoutes); // ✅ Route branchée
 
 // --- Gestion des erreurs ---
 app.use(errorHandler);
@@ -51,5 +54,5 @@ mongoose
     console.error('❌ Erreur de connexion à MongoDB :', err.message);
     process.exit(1);
   });
-
+  //ok
 module.exports = app;
