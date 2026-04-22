@@ -66,7 +66,7 @@ http://localhost:3001/api
     "_id": "123",
     "client": "Aliou",
     "montantTotal": 3000,
-    "statut": "en_attente"
+    "statut": "en attente"
   }
 ]
 ```
@@ -75,10 +75,11 @@ http://localhost:3001/api
 
 ## Statuts possibles des commandes
 
-- en_attente
-- en_preparation
-- en_livraison
-- livree
+- `en attente` (défaut)
+- `confirmée`
+- `en livraison`
+- `livrée`
+- `annulée`
 
 ---
 
