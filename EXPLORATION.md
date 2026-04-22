@@ -25,7 +25,7 @@
 ### Tests fonctionnels (par QA -- [Prénom])
 - [À compléter par votre membre QA]
 
-### Synthèse (par CP -- [Prénom])
+### Synthèse (par CP -- Ahmadou Oury Kindi BA)
 - Ce qui marche : 
 1. L'API Express répond correctement : GET /api/restaurants retourne la liste des restaurants (ex. Chez Fatou, Le Lamantin avec leurs champs nom, cuisine, adresse, note), et la page de détail restaurant affiche les plats associés.
 2. Le frontend Next.js s'affiche sur http://localhost:3000 : la page d'accueil liste les restaurants et un clic sur un restaurant ouvre sa page de détail avec les plats.
