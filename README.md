@@ -1,4 +1,4 @@
-# 🍛 TerrangaFood
+# 🍛 TerrangaFood — Equipe our-group — Thies
 
 Plateforme de commande de plats auprès de restaurants dakarois.
 
