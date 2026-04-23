@@ -1,8 +1,8 @@
-# 🍛 TerrangaFood
+# 🍛 TerrangaFood - Les Nazis
 
 Plateforme de commande de plats auprès de restaurants dakarois.
 
-**Projet pédagogique** — Architecture Logicielle 2 — L3 Génie Logiciel — UCAD / ESP
+**Projet pédagogique** — Architecture Logicielle 2 — L3 Génie Logiciel — ESTM
 
 ## Stack technique
 
@@ -81,7 +81,18 @@ terrangafood/
 ├── .gitignore
 └── README.md
 ```
+## Fonctionnalités existantes
 
+- Affichage de la liste des restaurants (nom, cuisine, adresse, note)
+- Page de détail d'un restaurant avec ses plats
+- API REST : GET /api/restaurants, GET /api/restaurants/:id
+- API REST : GET /api/plats
+- Seed de données initiales (Chez Fatou, Le Lamantin , ...)
+- Frontend Next.js connecté au backend via fetch (lib/api.js)
+
+## Bugs identifiés
+
+- [aucun bug trouvé] 
 ## Licence
 
 Projet pédagogique — Usage académique uniquement.
