@@ -1,8 +1,10 @@
 # 🍛 TerrangaFood
 
+**Equipe** - LES SENTINELLES 
+
 Plateforme de commande de plats auprès de restaurants dakarois.
 
-**Projet pédagogique** — Architecture Logicielle 2 — L3 Génie Logiciel — UCAD / ESP
+**Projet pédagogique** — Architecture Logicielle 2 — L3 Génie Logiciel 
 
 ## Stack technique
 
@@ -13,6 +15,13 @@ Plateforme de commande de plats auprès de restaurants dakarois.
 | Base de données | MongoDB (local ou Atlas) |
 
 ## Démarrage rapide
+1. **Cloner le dépôt**  
+   `git clone https://github.com/Tbyb/terrangafood-les-sentinelles.git`
+
+2. **Installer les dépendances**  
+   ```bash
+   cd api && npm install
+   cd ../web && npm install
 
 ### Prérequis
 
@@ -81,7 +90,18 @@ terrangafood/
 ├── .gitignore
 └── README.md
 ```
-
+fg
 ## Licence
 
 Projet pédagogique — Usage académique uniquement.
+
+
+## Fonctionnalités existantes
+
+- Affichage de la liste des restaurants
+- Consultation de la page détail d’un restaurant
+- Affichage des plats liés aux restaurants
+- API REST pour les restaurants
+- API REST pour les plats
+- Backend Express connecté à MongoDB
+- Frontend Next.js consommant l’API
