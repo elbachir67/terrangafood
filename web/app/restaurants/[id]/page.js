@@ -51,7 +51,6 @@ export default async function RestaurantDetailPage({ params }) {
           <span>🕐 {restaurant.horaires?.ouverture} — {restaurant.horaires?.fermeture}</span>
           <span>⭐ {restaurant.note}/5</span>
         </div>
-        /* Ajouter après la div restaurant-detail-info */
         <div style={{ marginTop: '20px' }}>
           <Link
             href={`/commander/${restaurant._id}`}
