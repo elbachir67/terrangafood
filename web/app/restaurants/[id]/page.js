@@ -44,6 +44,7 @@ export default async function RestaurantDetailPage({ params }) {
       <div className="restaurant-detail-header">
         <h1>{restaurant.nom}</h1>
         <p>{restaurant.description}</p>
+
         <div className="restaurant-detail-info">
           <span>🍽️ {restaurant.cuisine}</span>
           <span>📍 {restaurant.adresse}</span>
@@ -51,6 +52,13 @@ export default async function RestaurantDetailPage({ params }) {
           <span>🕐 {restaurant.horaires?.ouverture} — {restaurant.horaires?.fermeture}</span>
           <span>⭐ {restaurant.note}/5</span>
         </div>
+
+        {/* 🔥 BOUTON COMMANDER */}
+        <Link href={`/commander/${restaurant._id}`}>
+          <button className="btn-commander">
+            Commander
+          </button>
+        </Link>
       </div>
 
       <section className="plats-section">

@@ -2,16 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
-const dotenv = require('dotenv');
-const path = require('path');
+
+// Charger les variables d'environnement
+require('dotenv').config();
 
 const restaurantRoutes = require('./routes/restaurants');
 const platRoutes = require('./routes/plats');
 const commandeRoutes = require('./routes/commandes');
 const errorHandler = require('./middleware/errorHandler');
-
-// Charger les variables d'environnement
-dotenv.config({ path: path.join(__dirname, '../../.env') });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,10 +19,10 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
-// --- Routes ---
+// --- Route test ---
 app.get('/', (req, res) => {
   res.json({
-    message: 'Bienvenue sur l\'API TerrangaFood 🍛',
+    message: "Bienvenue sur l'API TerrangaFood 🍛",
     version: '0.0.0',
     endpoints: {
       restaurants: '/api/restaurants',
@@ -34,6 +32,7 @@ app.get('/', (req, res) => {
   });
 });
 
+// --- Routes API ---
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/plats', platRoutes);
 app.use('/api/commandes', commandeRoutes);
@@ -41,11 +40,15 @@ app.use('/api/commandes', commandeRoutes);
 // --- Gestion des erreurs ---
 app.use(errorHandler);
 
-// --- Connexion MongoDB et démarrage ---
+// --- Debug (à enlever après test) ---
+console.log('🔗 URI MongoDB utilisée :', process.env.MONGODB_URI);
+
+// --- Connexion MongoDB + lancement serveur ---
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('✅ Connecté à MongoDB avec succès');
+
     app.listen(PORT, () => {
       console.log(`🚀 Serveur démarré sur le port ${PORT}`);
       console.log(`📍 http://localhost:${PORT}`);
