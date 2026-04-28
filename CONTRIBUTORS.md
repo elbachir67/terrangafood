@@ -10,3 +10,4 @@
 
 |Alpha Diallo| DF | @Froxy-13 |
 | OFFINOBI Noé | CP | @Noe06-t |
+|Diagne Mariama Ndiaye| QA | @mariaman2735 |
