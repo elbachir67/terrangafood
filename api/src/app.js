@@ -26,7 +26,6 @@ const errorHandler = require('./middleware/errorHandler');
 // En Docker, les variables sont injectées par
 // docker-compose via 'environment'
 
-const path = require('path');
 const fs = require('fs');
 
 const envPath = path.resolve(__dirname, '../../.env');
@@ -35,6 +34,8 @@ if (fs.existsSync(envPath)) {
   dotenv.config({ path: envPath });
 }
 
+const app = express();
+const PORT = process.env.PORT || 3001;
 // --- Middleware globaux ---
 app.use(cors());
 app.use(express.json());
