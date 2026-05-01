@@ -1,11 +1,9 @@
 const path = require('path');
+const fs = require('fs');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const Restaurant = require('../models/Restaurant');
 const Plat = require('../models/Plat');
-
-const path = require('path');
-const fs = require('fs');
 
 const envPath = path.resolve(__dirname, '../../../.env');
 
