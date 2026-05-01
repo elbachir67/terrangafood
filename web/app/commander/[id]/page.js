@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import commandeform from '../../../components/ommandeform';
+import commandeform from '../../../components/commandeform';
 import { getRestaurant, getPlatsByRestaurant } from '../../../lib/api';
 
 export default async function CommanderPage({ params }) {
