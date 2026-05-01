@@ -1,9 +1,18 @@
+const path = require('path');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const Restaurant = require('../models/Restaurant');
 const Plat = require('../models/Plat');
 
-dotenv.config({ path: '../../.env' });
+const path = require('path');
+const fs = require('fs');
+
+const envPath = path.resolve(__dirname, '../../../.env');
+
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+}
+
 
 const restaurants = [
   {

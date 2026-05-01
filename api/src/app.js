@@ -1,18 +1,39 @@
+/**
+ * Fichier principal de l'API TerrangaFood.
+ * 
+ * Rôle :
+ * - Initialise l'application Express
+ * - Configure les middlewares globaux (CORS, JSON, logs)
+ * - Déclare les routes de l'API (restaurants, plats)
+ * - Gère les erreurs via un middleware dédié
+ * - Établit la connexion à la base de données MongoDB
+ * - Démarre le serveur sur le port défini
+ */
+
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
+const commandeRoutes = require('./routes/commandes');
 
 const restaurantRoutes = require('./routes/restaurants');
 const platRoutes = require('./routes/plats');
 const errorHandler = require('./middleware/errorHandler');
 
-// Charger les variables d'environnement
-dotenv.config({ path: '../.env' });
+// Charger .env seulement en développement local
+// En Docker, les variables sont injectées par
+// docker-compose via 'environment'
 
-const app = express();
-const PORT = process.env.PORT || 3001;
+const path = require('path');
+const fs = require('fs');
+
+const envPath = path.resolve(__dirname, '../../.env');
+
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+}
 
 // --- Middleware globaux ---
 app.use(cors());
@@ -26,16 +47,24 @@ app.get('/', (req, res) => {
     version: '0.0.0',
     endpoints: {
       restaurants: '/api/restaurants',
-      plats: '/api/plats'
+      plats: '/api/plats',
+      commandes: '/api/commandes'
     }
   });
+
 });
+
+
 
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/plats', platRoutes);
+// Brancher les routes
+app.use('/api/commandes', commandeRoutes);
 
 // --- Gestion des erreurs ---
 app.use(errorHandler);
+
+
 
 // --- Connexion MongoDB et démarrage ---
 mongoose
