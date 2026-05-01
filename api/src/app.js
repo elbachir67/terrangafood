@@ -22,11 +22,18 @@ const restaurantRoutes = require('./routes/restaurants');
 const platRoutes = require('./routes/plats');
 const errorHandler = require('./middleware/errorHandler');
 
-// Charger les variables d'environnement
-dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+// Charger .env seulement en développement local
+// En Docker, les variables sont injectées par
+// docker-compose via 'environment'
 
-const app = express();
-const PORT = process.env.PORT || 3001;
+const path = require('path');
+const fs = require('fs');
+
+const envPath = path.resolve(__dirname, '../../.env');
+
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+}
 
 // --- Middleware globaux ---
 app.use(cors());
