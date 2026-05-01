@@ -6,6 +6,10 @@ FROM node:20-alpine
 # Répertoire de travail
 WORKDIR /app
 
+# Argument pour l'URL de l'API (passé au build via docker-compose)
+ARG NEXT_PUBLIC_API_URL=http://localhost:3001/api
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+
 # Copier les dépendances
 COPY package.json package-lock.json* ./
 
@@ -14,10 +18,6 @@ RUN npm install
 
 # Copier le code source
 COPY . .
-
-# Variable d'environnement pour l'URL de l'API
-# (sera surchargée par docker-compose)
-ENV NEXT_PUBLIC_API_URL=http://localhost:3001/api
 
 # Construire l'application Next.js
 RUN npm run build
