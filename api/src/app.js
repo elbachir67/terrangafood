@@ -26,7 +26,6 @@ const errorHandler = require('./middleware/errorHandler');
 // En Docker, les variables sont injectées par
 // docker-compose via 'environment'
 
-const path = require('path');
 const fs = require('fs');
 
 const envPath = path.resolve(__dirname, '../../.env');
@@ -34,6 +33,9 @@ const envPath = path.resolve(__dirname, '../../.env');
 if (fs.existsSync(envPath)) {
   dotenv.config({ path: envPath });
 }
+
+// Initialiser l'application Express
+const app = express();
 
 // --- Middleware globaux ---
 app.use(cors());
@@ -67,8 +69,11 @@ app.use(errorHandler);
 
 
 // --- Connexion MongoDB et démarrage ---
+const PORT = process.env.PORT || 3001;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://mongo:27017/terrangafood';
+
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(MONGODB_URI)
   .then(() => {
     console.log('✅ Connecté à MongoDB avec succès');
     app.listen(PORT, () => {

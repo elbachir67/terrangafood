@@ -32,7 +32,7 @@ services:
       context: ./web
       dockerfile: Dockerfile
       args:
-        - NEXT_PUBLIC_API_URL=http://localhost:3001/api
+        - NEXT_PUBLIC_API_URL=http://api:3001/api
     container_name: terrangafood-web
     ports:
       - "3000:3000"
