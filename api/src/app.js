@@ -14,17 +14,8 @@ const platRoutes = require('./routes/plats');
 const commandeRoutes = require('./routes/commandes'); // <-- AJOUTÉ : Import du routeur des commandes
 const errorHandler = require('./middleware/errorHandler');
 
-
-
-// Charger .env seulement en développement local
-// En Docker, les variables sont injectées par docker-compose via "environment"
-const path = require('path');
-const envPath = path.resolve(__dirname, '../../.env');
-const fs = require('fs');
-
-if (fs.existsSync(envPath)) {
-  dotenv.config({ path: envPath });
-}
+// Charger les variables d'environnement
+dotenv.config({ path: '../.env' });
 
 const app = express();
 const PORT = process.env.PORT || 3001;

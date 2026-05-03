@@ -3,13 +3,7 @@ const dotenv = require('dotenv');
 const Restaurant = require('../models/Restaurant');
 const Plat = require('../models/Plat');
 
-const path = require('path');
-const envPath = path.resolve(__dirname, '../../../.env');
-const fs = require('fs');
-
-if (fs.existsSync(envPath)) {
-  dotenv.config({ path: envPath });
-}
+dotenv.config({ path: '../../.env' });
 
 const restaurants = [
   {
