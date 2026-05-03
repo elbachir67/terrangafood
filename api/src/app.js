@@ -6,11 +6,14 @@ const dotenv = require('dotenv');
 
 const restaurantRoutes = require('./routes/restaurants');
 const platRoutes = require('./routes/plats');
-const commandeRoutes = require('./routes/commandes'); // ✅ Import ajouté
+const commandeRoutes = require('./routes/commandes');
 const errorHandler = require('./middleware/errorHandler');
 
-// Charger les variables d'environnement
-dotenv.config({ path: '../.env' });
+// Charger les variables d'environnement (dans api/.env)
+dotenv.config(); // <-- pas besoin de préciser le chemin si tu lances depuis api/
+
+// Vérification
+console.log("MONGODB_URI =", process.env.MONGODB_URI);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -28,21 +31,24 @@ app.get('/', (req, res) => {
     endpoints: {
       restaurants: '/api/restaurants',
       plats: '/api/plats',
-      commandes: '/api/commandes' // ✅ Endpoints mis à jour
+      commandes: '/api/commandes'
     }
   });
 });
 
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/plats', platRoutes);
-app.use('/api/commandes', commandeRoutes); // ✅ Route branchée
+app.use('/api/commandes', commandeRoutes);
 
 // --- Gestion des erreurs ---
 app.use(errorHandler);
 
-// --- Connexion MongoDB et démarrage ---
+// ✅ Connexion MongoDB
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log('✅ Connecté à MongoDB avec succès');
     app.listen(PORT, () => {
@@ -54,5 +60,5 @@ mongoose
     console.error('❌ Erreur de connexion à MongoDB :', err.message);
     process.exit(1);
   });
-  //ok
+
 module.exports = app;

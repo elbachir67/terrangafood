@@ -1,4 +1,4 @@
-import Link from 'next/link';
+  import Link from 'next/link';
 import CommandeForm from '../../../components/CommandeForm';
 import { getRestaurant, getPlatsByRestaurant } from '../../../lib/api';
 
