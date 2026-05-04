@@ -4,28 +4,26 @@
  * charge les variables d'environnement, définit les routes principales
  * et établit la connexion avec la base de données MongoDB.
  */
-//ligne 1 : Ajoute de l'import en haut du fichier
-const commandeRoutes = require('./routes/commandes');
-// Brancher les routes 
-app.use('/api/commandes', commandeRoutes);
-// mettre a jour l'objet endpoints de la route d'accueil
-endpoints: {
-    restaurants: '/api/restaurants'
-    plats: '/api/plats'         
-    commandes: '/api/commandes'      
-}
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
+const path = require('path');
+const fs = require('fs');
 
 const restaurantRoutes = require('./routes/restaurants');
 const platRoutes = require('./routes/plats');
+const commandeRoutes = require('./routes/commandes');
 const errorHandler = require('./middleware/errorHandler');
 
-// Charger les variables d'environnement
-dotenv.config({ path: '../.env' });
+// Charger .env seulement en développement local
+// En Docker, les variables sont injectées par docker-compose via 'environment'
+const envPath = path.resolve(__dirname, '../../.env');
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+}
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -42,13 +40,15 @@ app.get('/', (req, res) => {
     version: '0.0.0',
     endpoints: {
       restaurants: '/api/restaurants',
-      plats: '/api/plats'
+      plats: '/api/plats',
+      commandes: '/api/commandes'
     }
   });
 });
 
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/plats', platRoutes);
+app.use('/api/commandes', commandeRoutes);
 
 // --- Gestion des erreurs ---
 app.use(errorHandler);
