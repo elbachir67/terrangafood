@@ -1,6 +1,11 @@
 // === Fonctions d'appel à l'API TerrangaFood ===
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+// Détecter si on est côté serveur ou client pour choisir l'URL de l'API
+const isServer = typeof window === 'undefined';
+const API_URL = isServer 
+  ? 'http://api:3001/api' 
+  : (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api');
+
 
 // Récupérer tous les restaurants
 export async function getRestaurants() {
