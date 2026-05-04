@@ -4,9 +4,14 @@ const path = require('path');
 const Restaurant = require('../models/Restaurant');
 const Plat = require('../models/Plat');
 
-dotenv.config({
-  path: path.resolve(__dirname, '../../../.env')
-});
+const fs = require('fs');
+
+// Charger .env seulement en développement local
+const envPath = path.resolve(__dirname, '../../../.env');
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+}
+
 
 const restaurants = [
   {
