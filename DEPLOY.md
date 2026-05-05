@@ -14,3 +14,11 @@
 5 - Runtime : Node
 6 - Instance : Free
 7 - Variables : MONGODB_URI ( Atlas ) , PORT (3001)
+
+## 3. Vercel (Frontend Next.js)
+- Projet : terrangafood-PKMDK
+- URL : https://terrangafood-PKMDK.vercel.app
+- Root Directory : web
+- Framework : Next.js (auto-détecté)
+- Variable : NEXT_PUBLIC_API_URL (URL Render + /api)
+- Déploiement continu : activé (push sur main)
