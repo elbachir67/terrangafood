@@ -33,3 +33,5 @@
 | 11 | L'API répond correctement sur ``.../api/commandes``.                          ok         |
 | 12 | Les données dans Atlas (Browse Collections) correspondent.            |       ok         |
 
+//
+ok
