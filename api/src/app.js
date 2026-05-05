@@ -1,3 +1,8 @@
+/**
+ * Fichier principal de l'API TerrangaFood.
+ * Configure le middleware, les routes et la connexion à la base de données.
+ */
+ 
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -6,10 +11,20 @@ const dotenv = require('dotenv');
 
 const restaurantRoutes = require('./routes/restaurants');
 const platRoutes = require('./routes/plats');
+const commandeRoutes = require('./routes/commandes'); // <-- AJOUTÉ : Import du routeur des commandes
 const errorHandler = require('./middleware/errorHandler');
 
-// Charger les variables d'environnement
-dotenv.config({ path: '../.env' });
+
+
+// Charger .env seulement en développement local
+// En Docker, les variables sont injectées par docker-compose via "environment"
+const path = require('path');
+const envPath = path.resolve(__dirname, '../../.env');
+const fs = require('fs');
+
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+}
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -26,13 +41,15 @@ app.get('/', (req, res) => {
     version: '0.0.0',
     endpoints: {
       restaurants: '/api/restaurants',
-      plats: '/api/plats'
+      plats: '/api/plats',
+      commandes: '/api/commandes' // <-- AJOUTÉ : Visibilité dans l'index
     }
   });
 });
 
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/plats', platRoutes);
+app.use('/api/commandes', commandeRoutes); // <-- AJOUTÉ : Déclaration de la route pour les commandes
 
 // --- Gestion des erreurs ---
 app.use(errorHandler);
