@@ -1,5 +1,18 @@
 const mongoose = require('mongoose');
-require('dotenv').config({ path: './.env' });
+const path = require('path');
+const fs = require('fs');
+
+// Chargement conditionnel de .env (local vs Docker)
+const envPath = path.resolve(__dirname, '../../../.env');
+if (fs.existsSync(envPath)) {
+  require('dotenv').config({ path: envPath });
+  console.log('📁 .env chargé pour le seed (mode local)');
+} else {
+  console.log('🐳 Mode Docker : seed avec variables d\'environnement injectées');
+}
+
+// const mongoose = require('mongoose');
+// require('dotenv').config({ path: './.env' });
 
 const Restaurant = require('../models/Restaurant');
 const Plat = require('../models/Plat');
