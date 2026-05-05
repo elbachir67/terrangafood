@@ -84,3 +84,7 @@ terrangafood/
 ## Licence
 
 Projet pédagogique — Usage académique uniquement.
+## URLs de production
+
+- **Frontend** : https://terrangafood-Les-Modeles-de-Design.vercel.app
+- **API** : https://terrangafood-api-Les-Modeles-de-Design.onrender.com
