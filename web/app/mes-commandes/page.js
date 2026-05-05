@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getCommandes } from '../../lib/api';
-import StatutBadge from '../../components/StatutBadge';
+import StatutBadge from '../../components/Statutbadge';
 
 export default async function MesCommandesPage() {
   let commandes = [];
