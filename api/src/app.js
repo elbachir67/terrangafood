@@ -2,9 +2,19 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
+const path = require('path');
+const fs = require('fs');
 
-// Charger les variables d'environnement
-require('dotenv').config();
+// Charger les variables d'environnement de manière conditionnelle
+// En local : charge .env s'il existe
+// En Docker : utilise les variables déjà présentes dans l'environnement
+const envPath = path.resolve(__dirname, '../../.env');
+if (fs.existsSync(envPath)) {
+  require('dotenv').config({ path: envPath });
+  console.log('📁 .env chargé depuis le fichier (mode local)');
+} else {
+  console.log('🐳 Mode Docker : utilisation des variables d\'environnement injectées');
+}
 
 const restaurantRoutes = require('./routes/restaurants');
 const platRoutes = require('./routes/plats');
@@ -13,6 +23,21 @@ const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+// const express = require('express');
+// const mongoose = require('mongoose');
+// const cors = require('cors');
+// const morgan = require('morgan');
+
+// // Charger les variables d'environnement
+// require('dotenv').config();
+
+// const restaurantRoutes = require('./routes/restaurants');
+// const platRoutes = require('./routes/plats');
+// const commandeRoutes = require('./routes/commandes');
+// const errorHandler = require('./middleware/errorHandler');
+
+// const app = express();
+// const PORT = process.env.PORT || 3001;
 
 // --- Middleware globaux ---
 app.use(cors());
