@@ -45,3 +45,21 @@ export async function getPlats() {
   }
   return res.json();
 }
+
+// 🔥 NOUVELLE FONCTION : créer une commande
+export async function creerCommande(data) {
+  const res = await fetch(`${API_URL}/commandes`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    const error = await res.json();
+    throw new Error(error.message || 'Erreur lors de la création de la commande');
+  }
+
+  return res.json();
+}
