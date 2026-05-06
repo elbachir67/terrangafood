@@ -332,3 +332,196 @@ a:hover {
   margin-top: 60px;
   font-size: 0.9rem;
 }
+
+.commande-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.commande-form h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.plats-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plat-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.plat-checkbox.selected {
+  background-color: #dcfce7;
+  border-color: #16a34a;
+}
+
+.plat-checkbox input {
+  margin-right: 10px;
+}
+
+.total-section {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.btn-commander {
+  width: 20%;
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-commander:hover {
+  background-color: #15803d;
+}
+
+.form-message.success {
+  background: #dcfce7;
+  color: #166534;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.form-message.error {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* === Page Mes Commandes === */
+
+.commandes-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.commandes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.commande-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  transition: transform 0.2s;
+}
+
+.commande-card:hover {
+  transform: translateY(-3px);
+}
+
+.commande-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.commande-card-header h3 {
+  color: var(--primary);
+}
+
+.commande-card-details {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.commande-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.commande-montant {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* Badge statut */
+.statut-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.statut-en-attente {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+.statut-validee {
+  background: #DCFCE7;
+  color: #166534;
+}
+
+.statut-refusee {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+/* Fix navigation header */
+
+.header-nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.header-nav a {
+  color: white !important;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.header-nav a:hover {
+  color: var(--accent-light);
+}
