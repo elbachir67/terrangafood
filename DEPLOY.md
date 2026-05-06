@@ -11,3 +11,14 @@
   - restaurants
   - plats
   - commandes
+
+  ## 2. Render (API Express)
+
+- Service : terrangafood-api
+- URL : https://terrangafood-api.onrender.com
+- Root Directory : api
+- Runtime : Node
+- Instance : Free
+- Variables :
+  - MONGODB_URI (MongoDB Atlas)
+  - PORT (3001)
