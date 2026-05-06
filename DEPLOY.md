@@ -31,3 +31,11 @@
 - Runtime : Node
 - Instance : Free
 - Variables : MONGODB_URI (Atlas), PORT (3001)
+
+## 4. Vercel (Frontend Next.js)
+- Projet : terrangafood-les-sentinelles
+- URL : https://terrangafood-les-sentinelles.vercel.app
+- Root Directory : web
+- Framework : Next.js (auto-détecté)
+- Variable : NEXT_PUBLIC_API_URL (URL Render + /api)
+- Déploiement continu : activé (push sur main)
