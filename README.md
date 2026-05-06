@@ -89,4 +89,4 @@ Projet pédagogique — Usage académique uniquement.
 ## URLs de production
 
 - **Frontend** : https://terrangafood-les-teranga-devs.vercel.app
-- **API** : https://terrangafood-api-les-teranga-devs.onrender.com
+- **API** : https://terrangafood-api-les-teranga-devs.onrender.com 
