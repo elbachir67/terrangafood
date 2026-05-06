@@ -397,7 +397,7 @@ a:hover {
 }
 
 .btn-commander {
-  width: 100%;
+  width: 20%;
   margin-top: 20px;
   padding: 12px;
   background-color: #16a34a;
@@ -504,4 +504,24 @@ a:hover {
 .statut-refusee {
   background: #FEE2E2;
   color: #991B1B;
+}
+
+/* Fix navigation header */
+
+.header-nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.header-nav a {
+  color: white !important;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.header-nav a:hover {
+  color: var(--accent-light);
 }
