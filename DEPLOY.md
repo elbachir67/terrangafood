@@ -22,3 +22,12 @@
 4. Récupération et adaptation de l'URI de connexion.
 5. Exécution du seed de production.
 6. Vérification des collections dans Atlas.
+
+## 2. Render (API Express)
+
+- Service : terrangafood-api-les-sentinelles
+- URL : https://terrangafood-api-les-sentinelles.onrender.com
+- Root Directory : api
+- Runtime : Node
+- Instance : Free
+- Variables : MONGODB_URI (Atlas), PORT (3001)
