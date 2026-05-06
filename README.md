@@ -6,11 +6,11 @@ Plateforme de commande de plats auprès de restaurants dakarois.
 
 ## Stack technique
 
-| Module | Stack |
-|--------|-------|
-| Backend API | Express.js, MongoDB, Mongoose |
-| Frontend | Next.js 14 (App Router) |
-| Base de données | MongoDB (local ou Atlas) |
+| Module          | Stack                         |
+| --------------- | ----------------------------- |
+| Backend API     | Express.js, MongoDB, Mongoose |
+| Frontend        | Next.js 14 (App Router)       |
+| Base de données | MongoDB (local ou Atlas)      |
 
 ## Démarrage rapide
 
@@ -24,8 +24,8 @@ Plateforme de commande de plats auprès de restaurants dakarois.
 
 ```bash
 # Cloner le dépôt
-git clone https://github.com/[votre-pseudo]/terrangafood-[equipe].git
-cd terrangafood-[equipe]
+git clone https://github.com/[Anna-hue-ops]/terrangafood-[code-chill].git
+cd terrangafood-[code-chill]
 
 # Configurer les variables d'environnement
 cp .env.example .env
