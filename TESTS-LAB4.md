@@ -34,3 +34,4 @@
 
 - Temps de cold start API Render : ~30 secondes
 - Bugs trouvés : aucun bug bloquant
+- Validation finale QA effectuée le 06/05/2026
