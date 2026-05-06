@@ -126,3 +126,8 @@ et pour l'autre package.json contient trois scrips pour gérer le lancement de m
 --> "dev" : "nodemon src/app.js"
 --> "start" : "node src/app.js"
 --> "seed" : "node -r dotenv/config src/seed/seed.js"
+
+## URLs de production
+
+- Frontend : https://terrangafood-tec-vibes.vercel.app
+- API : https://terrangafood-api-tec-vibes.onrender.com
