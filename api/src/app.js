@@ -36,10 +36,7 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// --- Middleware globaux ---
 
-app.use(express.json());
-app.use(morgan('dev'));
 
 // Configuration CORS sécurisée
 const corsOptions = {
@@ -55,6 +52,13 @@ const corsOptions = {
   credentials: true  // Si vous utilisez des cookies/authentification
 };
 app.use(cors(corsOptions));
+
+app.options('*', cors(corsOptions)); 
+
+// --- Middleware globaux ---
+
+app.use(express.json());
+app.use(morgan('dev'));
 
 // --- Routes ---
 app.get('/', (req, res) => {
