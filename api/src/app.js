@@ -47,6 +47,8 @@ const corsOptions = {
     'http://localhost:3000',  // Frontend en développement local
     'http://web:3000',        // Frontend dans Docker (si nécessaire)
     'http://127.0.0.1:3000',  // Alternative pour localhost
+    'https://terrangafood-les-sentinelles-9to4.vercel.app',  // Frontend Vercel
+    process.env.FRONTEND_URL   // URL Vercel en production (si définie)
   ].filter(Boolean),  // Enlever les undefined
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
