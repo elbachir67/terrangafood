@@ -105,6 +105,7 @@ Projet pédagogique — Usage académique uniquement.
 - API REST pour les plats
 - Backend Express connecté à MongoDB
 - Frontend Next.js consommant l’API
+
 ## 🚀 URLs de production
 
 - **Frontend** : https://terrangafood-les-sentinelles.vercel.app
