@@ -3,7 +3,7 @@ import PlatCard from '../../../components/PlatCard';
 import { getRestaurant, getPlatsByRestaurant } from '../../../lib/api';
 
 export default async function RestaurantDetailPage({ params }) {
-  const { id } = params;
+  const { id } = await params;
   let restaurant = null;
   let plats = [];
   let error = null;
@@ -50,6 +50,23 @@ export default async function RestaurantDetailPage({ params }) {
           {restaurant.telephone && <span>📞 {restaurant.telephone}</span>}
           <span>🕐 {restaurant.horaires?.ouverture} — {restaurant.horaires?.fermeture}</span>
           <span>⭐ {restaurant.note}/5</span>
+        </div>
+        
+        <div style={{ marginTop: '20px' }}>
+          <Link
+            href={`/commander/${restaurant._id}`}
+            style={{
+              display: 'inline-block',
+              padding: '10px 24px',
+              background: '#52B788',
+              color: 'white',
+              borderRadius: '8px',
+              fontWeight: '600',
+              fontSize: '1rem',
+            }}
+          >
+            Commander ici
+          </Link>
         </div>
       </div>
 
