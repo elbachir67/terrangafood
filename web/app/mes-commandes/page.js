@@ -18,7 +18,9 @@ export default async function MesCommandesPage() {
         Retour aux restaurants
       </Link>
 
-      <h1>Mes commandes ({commandes.length})</h1>
+      <h1>
+        Mes commandes <span className="accent">({commandes.length})</span>
+      </h1>
 
       {error ? (
         <div className="error">

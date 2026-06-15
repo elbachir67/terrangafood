@@ -66,7 +66,9 @@ export default function CommandeForm({ restaurant, plats }) {
 
   return (
     <div className="commande-form">
-      <h2>Commander chez {restaurant.nom}</h2>
+      <h2>
+        Commander chez <span className="accent">{restaurant.nom}</span>
+      </h2>
 
       {message && (
         <div className={`form-message ${message.type}`}>

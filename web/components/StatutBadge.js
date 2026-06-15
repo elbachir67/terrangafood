@@ -7,22 +7,12 @@ const statutClasses = {
   'annulée': 'statut-annulee',
 };
 
-// Mapping statut → emoji
-const statutEmojis = {
-  'en attente': '⏳',
-  'confirmée': '✅',
-  'en livraison': '🚚',
-  'livrée': '📦',
-  'annulée': '❌',
-};
-
 export default function StatutBadge({ statut }) {
   const classe = statutClasses[statut] || '';
-  const emoji = statutEmojis[statut] || '';
 
   return (
     <span className={`statut-badge ${classe}`}>
-      {emoji} {statut}
+      {statut}
     </span>
   );
 }
