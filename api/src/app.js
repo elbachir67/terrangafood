@@ -17,7 +17,6 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
 
@@ -40,19 +39,6 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(morgan('dev'));
-
-// Configuration CORS sécurisée
-const corsOptions = {
-  origin: [
-    'http://localhost:3000',  // Frontend en développement local
-    'http://web:3000',        // Frontend dans Docker (si nécessaire)
-    'http://127.0.0.1:3000',  // Alternative pour localhost
-  ].filter(Boolean),  // Enlever les undefined
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true  // Si vous utilisez des cookies/authentification
-};
-app.use(cors(corsOptions));
 
 // --- Routes ---
 app.get('/', (req, res) => {

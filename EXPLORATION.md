@@ -115,7 +115,7 @@
 | `lint`      | `next lint`  | Vérifie la qualité du code                    |
 
 ---
-**Fichiers ignorés par Git (`.gitignore`) :**
+**Fichiers ignorés par Git (`.gitignore`) :** kjzs
 
 | Fichier/Dossier          | Raison de l'ignorance                                  |
 |--------------------------|--------------------------------------------------------|
