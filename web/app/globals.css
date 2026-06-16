@@ -1,774 +1,64 @@
-/* === TerrangaFood — Styles Globaux === */
-
-:root {
-  /* Palette TerrangaFood Premium */
-  --primary: #8B4513;
-  --primary-light: #A65E2E;
-  --accent: #F4A261;
-  --accent-light: #FFE8CC;
-
-  --background: #FFF8F0;
-  --surface: #FFFFFF;
-
-  --text: #2D2D2D;
-  --text-light: #6B7280;
-
-  --border: #EADBC8;
-
-  --error: #D62828;
-  --warning: #F77F00;
-  --success: #2A9D8F;
-
-  --radius: 16px;
-
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--background);
-  color: var(--text);
-  line-height: 1.6;
-}
-
-a {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--accent);
-}
-
-/* === Layout === */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* === Header === */
-.header {
-  background: linear-gradient(
-    135deg,
-    #5C2C06,
-    #8B4513
-  );
-  color: white;
-  padding: 16px 0;
-  box-shadow: var(--shadow);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.header-logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: white;
-}
-
-.header-logo span {
-  color: var(--accent-light);
-}
-
-.header-nav {
-  display: flex;
-  gap: 24px;
-}
-
-.header-nav a {
-  color: var(--accent-light);
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.header-nav a:hover {
-  color: white;
-}
-
-/* === Hero === */
-.hero {
-  background: linear-gradient(
-    135deg,
-    #8B4513 0%,
-    #A65E2E 50%,
-    #F4A261 100%
-  );
-  color: white;
-  padding: 90px 20px;
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 1.3rem;
-  color: #FFF4E6;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* === Grille de restaurants === */
-.restaurants-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 24px;
-  padding: 0 20px;
-  max-width: 1200px;
-  margin: 0 auto 60px;
-}
-
-/* === Carte restaurant === */
-.restaurant-card {
-  background: var(--surface);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: 1px solid var(--border);
-}
-
-.restaurant-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-}
-.restaurant-card-image {
-  height: 180px;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--primary-light) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-}
-
-.restaurant-card-body {
-  padding: 20px;
-}
-
-.restaurant-card-body h3 {
-  font-size: 1.2rem;
-  margin-bottom: 4px;
-  color: var(--primary);
-}
-
-.restaurant-card-cuisine {
-  color: var(--text-light);
-  font-size: 0.9rem;
-  margin-bottom: 8px;
-}
-
-.restaurant-card-address {
-  color: var(--text-light);
-  font-size: 0.85rem;
-  margin-bottom: 12px;
-}
-
-.restaurant-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.restaurant-card-note {
-  background: var(--accent);
-  color: white;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.restaurant-card-status {
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.status-open {
-  color: var(--success);
-}
-
-.status-closed {
-  color: var(--error);
-}
-
-/* === Page détail restaurant === */
-.restaurant-detail {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-.restaurant-detail-header {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-  color: white;
-  padding: 40px;
-  border-radius: var(--radius);
-  margin-bottom: 32px;
-}
-
-.restaurant-detail-header h1 {
-  font-size: 2rem;
-  margin-bottom: 8px;
-}
-
-.restaurant-detail-info {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-  font-size: 0.95rem;
-  color: var(--accent-light);
-}
-
-.plats-section h2 {
-  font-size: 1.5rem;
-  color: var(--primary);
-  margin-bottom: 20px;
-}
-
-.plats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-}
-
-/* === Carte plat === */
-.plat-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  transition: box-shadow 0.2s;
-}
-
-.plat-card:hover {
-  box-shadow: var(--shadow);
-}
-
-.plat-card h4 {
-  font-size: 1.05rem;
-  color: var(--primary);
-  margin-bottom: 4px;
-}
-
-.plat-card-categorie {
-  display: inline-block;
-  background: var(--accent-light);
-  color: var(--primary);
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.plat-card-description {
-  color: var(--text-light);
-  font-size: 0.9rem;
-  margin-bottom: 12px;
-}
-
-.plat-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.plat-card-prix {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-.plat-card-dispo {
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-/* === Bouton retour === */
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--primary);
-  font-weight: 500;
-  margin-bottom: 20px;
-  transition: color 0.2s;
-}
-
-.back-link:hover {
-  color: var(--accent);
-}
-
-/* === Loading === */
-.loading {
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--text-light);
-  font-size: 1.1rem;
-}
-
-/* === Error === */
-.error {
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--error);
-  font-size: 1.1rem;
-}
-
-/* === Footer === */
-.footer {
-  background: var(--primary);
-  color: var(--accent-light);
-  text-align: center;
-  padding: 24px;
-  margin-top: 60px;
-  font-size: 0.9rem;
-}
-/* ============================================ */
-/* Formulaire de commande                       */
-/* ============================================ */
-
-.commande-page {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-.commande-form {
-  background: var(--surface);
-  border-radius: var(--radius);
-  padding: 32px;
-  box-shadow: var(--shadow);
-}
-
-.commande-form h2 {
-  color: var(--primary);
-  margin-bottom: 24px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: var(--text);
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 10px 14px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-family: inherit;
-  transition: border-color 0.2s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-}
-
-.plats-selection {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 12px;
-  margin-top: 8px;
-}
-
-.plat-checkbox {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.plat-checkbox:hover {
-  border-color: var(--accent);
-}
-
-.plat-checkbox.selected {
-  border-color: var(--primary);
-  background: var(--accent-light);
-}
-
-.plat-checkbox input[type="checkbox"] {
-  width: auto;
-}
-
-.plat-checkbox-info {
-  flex: 1;
-}
-
-.plat-checkbox-info .nom {
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.plat-checkbox-info .prix {
-  color: var(--primary);
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-.total-section {
-  background: var(--primary);
-  color: white;
-  padding: 16px 20px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 24px 0;
-  font-size: 1.1rem;
-}
-
-.btn-commander {
-  width: 100%;
-  padding: 14px;
-  background: linear-gradient(
-    135deg,
-    #8B4513,
-    #F4A261
-  );
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-commander:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-.btn-commander:disabled {
-  background: var(--text-light);
-  cursor: not-allowed;
-}
-
-.form-message {
-  padding: 12px 16px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  font-weight: 500;
-}
-
-.form-message.success {
-  background: #D1FAE5;
-  color: var(--success);
-}
-
-.form-message.error {
-  background: #FEE2E2;
-  color: var(--error);
-}
-
-/* ============================================ */
-/* Page Mes commandes                           */
-/* ============================================ */
-
-.commandes-page {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
-
-.commandes-page h1 {
-  color: var(--primary);
-  margin-bottom: 24px;
-}
-
-.commandes-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.commande-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow);
-}
-
-.commande-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.commande-card-header h3 {
-  color: var(--primary);
-  font-size: 1.1rem;
-}
-
-.commande-card-details {
-  color: var(--text-light);
-  font-size: 0.9rem;
-  line-height: 1.8;
-}
-
-.commande-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 16px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
-}
-
-.commande-montant {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-/* ============================================ */
-/* Statut Badge                                 */
-/* ============================================ */
-
-.statut-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.statut-en-attente {
-  background: #FEF3C7;
-  color: #92400E;
-}
-
-.statut-confirmee {
-  background: #DBEAFE;
-  color: #1E40AF;
-}
-
-.statut-en-livraison {
-  background: #E9D5FF;
-  color: #6B21A8;
-}
-
-.statut-livree {
-  background: #D1FAE5;
-  color: #065F46;
-}
-
-.statut-annulee {
-  background: #FEE2E2;
-  color: #991B1B;
-}
-
-.restaurant-card-image {
-  height: 200px;
-  background: linear-gradient(
-    135deg,
-    #F4A261,
-    #8B4513
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4rem;
-}
-
-.plat-card,
-.commande-card {
-  border-radius: 16px;
-  transition: all 0.3s ease;
-}
-
-.plat-card:hover,
-.commande-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-
-.footer {
-  background: linear-gradient(
-    135deg,
-    #5C2C06,
-    #8B4513
-  );
-  color: #FFE8CC;
-  text-align: center;
-  padding: 24px;
-  margin-top: 60px;
-}
-/* ================================ */
-/* Thèmes : doré élégant & mode sombre */
-/* ================================ */
-
-/* Smooth color transitions for theme changes */
-body {
-  transition: background-color var(--transition-fast), color var(--transition-fast);
-}
-
-/* Golden theme helper: can be applied with a top-level class `theme-gold` */
-.theme-gold {
-  --accent: var(--gold-500);
-  --accent-light: var(--gold-200);
-  --primary: #071125; /* very dark navy to contrast gold */
-  --primary-light: #13233d;
-  --surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,248,244,0.98));
-  --shadow: 0 8px 30px rgba(2,6,23,0.12);
-}
-
-/* Explicit dark mode class (also supported via prefers-color-scheme) */
-.dark,
-.theme-dark {
-  --background: #071122;
-  --surface: #071529;
-  --text: #E6EEF6;
-  --text-light: #9FB0C4;
-  --border: rgba(255,255,255,0.06);
-  --accent: var(--gold-300);
-  --accent-light: var(--gold-50);
-  --shadow: 0 10px 40px rgba(0,0,0,0.6);
-  --shadow-lg: 0 20px 60px rgba(0,0,0,0.7);
-}
-
-/* Respect user's system preference */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #071122;
-    --surface: #071529;
-    --text: #E6EEF6;
-    --text-light: #9FB0C4;
-    --border: rgba(255,255,255,0.06);
-    --accent: var(--gold-300);
-    --accent-light: var(--gold-50);
-    --shadow: 0 8px 30px rgba(0,0,0,0.6);
-  }
-}
-
-/* Small component refinements to highlight the golden aesthetic */
-.header {
-  background: linear-gradient(90deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 40%, black 20%) 100%);
-}
-
-.restaurant-card-image {
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 70%, var(--primary) 30%) 0%, var(--primary-light) 100%);
-}
-
-.btn-commander {
-  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 60%, var(--primary) 40%));
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--accent) 30%, black 80%);
-}
-
-.restaurant-card-note {
-  background: linear-gradient(90deg, var(--accent), var(--accent-light));
-  color: #081018;
-}
-
-/* Ensure badges remain legible in dark/gold modes */
-.statut-badge {
-  color: inherit;
-}
 /* =========================================================
-   TerrangaFood — Style moderne, clair, intuitif
-   Direction:
-   - fond clair et respirant
-   - cartes blanches avec bordures douces
-   - texte très lisible
-   - vert principal pour les actions
-   - doré seulement en accent premium
+   TerrangaFood — Design clair, moderne, épuré
+   Palette : blanc pur + vert teal frais + or chaud en accent
    ========================================================= */
 
-:root {
-  /* Palette principale */
-  --primary: #0F766E;
-  --primary-hover: #0B5E59;
-  --primary-light: #CCFBF1;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-  --accent: #F4B740;
-  --accent-hover: #D99A1D;
-  --accent-light: #FFF3D6;
+:root {
+  /* Couleurs principales */
+  --primary: #0D9488;
+  --primary-hover: #0F766E;
+  --primary-light: #CCFBF1;
+  --primary-ultra-light: #F0FDFA;
+
+  /* Accent doré */
+  --accent: #F59E0B;
+  --accent-light: #FEF3C7;
+  --accent-dark: #B45309;
 
   /* Fonds */
-  --background: #F8FAF8;
-  --background-elevated: #F1F5F2;
+  --background: #F9FAFB;
   --surface: #FFFFFF;
-  --surface-soft: #F9FBFA;
-  --surface-strong: #ECF3F1;
+  --surface-soft: #F3F4F6;
+  --surface-elevated: #FFFFFF;
 
   /* Texte */
-  --text: #17212B;
-  --text-soft: #2E3A46;
-  --text-light: #5F6B76;
-  --text-faint: #8A96A3;
+  --text: #111827;
+  --text-soft: #374151;
+  --text-light: #6B7280;
+  --text-faint: #9CA3AF;
   --text-inverse: #FFFFFF;
 
-  /* Etats */
-  --border: #E4E8EC;
-  --border-strong: #D6DDE3;
+  /* Bordures */
+  --border: #E5E7EB;
+  --border-focus: rgba(13, 148, 136, 0.4);
+
+  /* États */
   --error: #DC2626;
-  --warning: #D97706;
   --success: #16A34A;
+  --warning: #D97706;
   --info: #2563EB;
 
-  /* Layout */
-  --radius-sm: 10px;
-  --radius: 16px;
-  --radius-lg: 22px;
-  --radius-full: 999px;
+  /* Rayons */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
 
   /* Ombres */
-  --shadow-xs: 0 2px 6px rgba(15, 23, 42, 0.04);
-  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 20px 48px rgba(15, 23, 42, 0.14);
+  --shadow-xs: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
 
-  /* Motion */
-  --transition-fast: 180ms cubic-bezier(.2,.9,.2,1);
-  --transition-slow: 280ms cubic-bezier(.2,.9,.2,1);
+  /* Transitions */
+  --transition: 160ms cubic-bezier(0.2,0.9,0.2,1);
+  --transition-slow: 260ms cubic-bezier(0.2,0.9,0.2,1);
 
   /* Typographie */
-  --font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* Largeurs */
+  /* Layout */
   --container: 1200px;
 }
 
@@ -779,72 +69,59 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-ol {
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: var(--font-family);
-  background:
-    radial-gradient(circle at top left, rgba(244, 183, 64, 0.08), transparent 28%),
-    radial-gradient(circle at top right, rgba(15, 118, 110, 0.08), transparent 24%),
-    var(--background);
-  color: var(--text);
-  line-height: 1.6;
-  transition:
-    background-color var(--transition-fast),
-    color var(--transition-fast);
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
-img,
-svg {
+body {
+  font-family: var(--font);
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg {
   display: block;
   max-width: 100%;
 }
 
-button,
-input,
-textarea {
+button, input, textarea, select {
   font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 a {
   color: var(--primary);
   text-decoration: none;
-  transition: color var(--transition-fast), opacity var(--transition-fast);
+  transition: color var(--transition);
 }
 
 a:hover {
   color: var(--primary-hover);
 }
 
-button {
-  cursor: pointer;
-}
-
 ::selection {
-  background: rgba(15, 118, 110, 0.18);
-  color: var(--text);
+  background: var(--primary-light);
+  color: var(--primary-hover);
 }
 
 :focus-visible {
-  outline: 3px solid rgba(15, 118, 110, 0.24);
+  outline: 2px solid var(--primary);
   outline-offset: 3px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 /* =========================================================
@@ -853,7 +130,7 @@ button {
 .container {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 /* =========================================================
@@ -863,10 +140,10 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.84);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(228, 232, 236, 0.9);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow-xs);
 }
 
@@ -876,14 +153,14 @@ button {
   justify-content: space-between;
   max-width: var(--container);
   margin: 0 auto;
-  padding: 16px 20px;
-  min-height: 76px;
+  padding: 0 24px;
+  height: 68px;
 }
 
 .header-logo {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
   color: var(--text);
 }
 
@@ -894,166 +171,160 @@ button {
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 4px;
 }
 
 .header-nav a {
   color: var(--text-soft);
   font-weight: 600;
-  font-size: 0.95rem;
-  padding: 10px 14px;
-  border-radius: 999px;
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
   transition:
-    color var(--transition-fast),
-    background-color var(--transition-fast),
-    transform var(--transition-fast);
+    color var(--transition),
+    background var(--transition);
 }
 
 .header-nav a:hover {
   color: var(--primary);
-  background: rgba(15, 118, 110, 0.08);
-  transform: translateY(-1px);
+  background: var(--primary-ultra-light);
 }
 
 /* =========================================================
    Hero
    ========================================================= */
 .hero {
-  position: relative;
-  padding: 72px 20px 56px;
+  padding: 64px 24px 52px;
   text-align: center;
-  margin-bottom: 36px;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 18px 20px 0;
-  max-width: var(--container);
-  margin: 0 auto;
-  border-radius: 30px;
-  background:
-    linear-gradient(135deg, rgba(15, 118, 110, 0.10), rgba(244, 183, 64, 0.10)),
-    linear-gradient(180deg, #ffffff, #f7fbfa);
-  border: 1px solid rgba(228, 232, 236, 0.95);
-  box-shadow: var(--shadow);
-  z-index: 0;
-}
-
-.hero > * {
-  position: relative;
-  z-index: 1;
+  margin-bottom: 40px;
+  background: linear-gradient(
+    180deg,
+    var(--primary-ultra-light) 0%,
+    var(--background) 100%
+  );
+  border-bottom: 1px solid var(--border);
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  line-height: 1.12;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.1;
   letter-spacing: -0.04em;
-  margin-bottom: 14px;
   color: var(--text);
+  margin-bottom: 12px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--primary);
 }
 
 .hero p {
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   color: var(--text-light);
-  max-width: 660px;
+  max-width: 580px;
   margin: 0 auto;
+  line-height: 1.7;
 }
 
 /* =========================================================
-   Restaurants grid
+   Grille restaurants
    ========================================================= */
 .restaurants-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-  padding: 0 20px;
+  gap: 20px;
+  padding: 0 24px;
   max-width: var(--container);
-  margin: 0 auto 64px;
+  margin: 0 auto 60px;
 }
 
 /* =========================================================
-   Restaurant card
+   Carte restaurant
    ========================================================= */
 .restaurant-card {
   background: var(--surface);
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-xs);
-  transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    border-color var(--transition-fast);
   cursor: pointer;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
 }
 
 .restaurant-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow);
-  border-color: rgba(15, 118, 110, 0.18);
+  border-color: rgba(13, 148, 136, 0.2);
 }
 
 .restaurant-card-image {
-  height: 190px;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  background:
-    linear-gradient(135deg, rgba(244, 183, 64, 0.24), rgba(15, 118, 110, 0.18)),
-    linear-gradient(180deg, #fffef9, #eef7f5);
-  color: var(--text);
+  background: linear-gradient(
+    135deg,
+    var(--primary-ultra-light) 0%,
+    var(--accent-light) 100%
+  );
+  border-bottom: 1px solid var(--border);
 }
 
 .restaurant-card-body {
-  padding: 20px;
+  padding: 18px 20px;
 }
 
 .restaurant-card-body h3 {
-  font-size: 1.18rem;
-  line-height: 1.3;
-  margin-bottom: 6px;
-  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 700;
   letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 4px;
 }
 
 .restaurant-card-cuisine {
-  color: var(--text-soft);
-  font-size: 0.95rem;
-  margin-bottom: 8px;
+  font-size: 0.88rem;
   font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 6px;
 }
 
 .restaurant-card-address {
-  color: var(--text-light);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--text-faint);
   margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .restaurant-card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
 }
 
 .restaurant-card-note {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background: var(--accent-light);
-  color: #8A5B00;
-  border: 1px solid rgba(244, 183, 64, 0.35);
-  padding: 6px 12px;
+  color: var(--accent-dark);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 5px 11px;
   border-radius: var(--radius-full);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
 }
 
 .restaurant-card-status {
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1061,11 +332,10 @@ button {
 
 .restaurant-card-status::before {
   content: "";
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: currentColor;
-  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.10);
 }
 
 .status-open {
@@ -1076,17 +346,13 @@ button {
   color: var(--error);
 }
 
-.status-closed::before {
-  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.10);
-}
-
 /* =========================================================
-   Restaurant detail
+   Détail restaurant
    ========================================================= */
 .restaurant-detail {
-  max-width: 920px;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width: 900px;
+  margin: 36px auto;
+  padding: 0 24px;
 }
 
 .back-link {
@@ -1095,71 +361,75 @@ button {
   gap: 8px;
   color: var(--text-soft);
   font-weight: 600;
+  font-size: 0.9rem;
   margin-bottom: 20px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
+  padding: 9px 16px;
+  border-radius: var(--radius-full);
   border: 1px solid var(--border);
+  background: var(--surface);
+  transition:
+    color var(--transition),
+    border-color var(--transition),
+    background var(--transition);
 }
 
 .back-link:hover {
   color: var(--primary);
-  border-color: rgba(15, 118, 110, 0.22);
-  background: rgba(15, 118, 110, 0.06);
+  border-color: rgba(13, 148, 136, 0.3);
+  background: var(--primary-ultra-light);
 }
 
 .restaurant-detail-header {
-  background:
-    linear-gradient(135deg, rgba(15, 118, 110, 0.10), rgba(244, 183, 64, 0.12)),
-    var(--surface);
-  color: var(--text);
-  padding: 34px;
-  border-radius: 24px;
+  background: var(--surface);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  margin-bottom: 34px;
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-xs);
+  margin-bottom: 28px;
 }
 
 .restaurant-detail-header h1 {
-  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
-  line-height: 1.15;
-  margin-bottom: 8px;
-  color: var(--text);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
   letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 8px;
 }
 
 .restaurant-detail-info {
   display: flex;
-  gap: 16px;
+  gap: 10px;
   flex-wrap: wrap;
-  margin-top: 18px;
-  font-size: 0.95rem;
-  color: var(--text-light);
+  margin-top: 16px;
 }
 
 .restaurant-detail-info span,
 .restaurant-detail-info div,
 .restaurant-detail-info p {
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(228, 232, 236, 0.9);
-  padding: 8px 12px;
-  border-radius: 999px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
 }
 
 /* =========================================================
-   Plats
+   Section plats
    ========================================================= */
 .plats-section h2 {
-  font-size: 1.55rem;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   color: var(--text);
-  margin-bottom: 22px;
-  letter-spacing: -0.02em;
+  margin-bottom: 20px;
 }
 
 .plats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 16px;
 }
 
 .plat-card {
@@ -1169,40 +439,42 @@ button {
   padding: 20px;
   box-shadow: var(--shadow-xs);
   transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    border-color var(--transition-fast);
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
 }
 
 .plat-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow);
-  border-color: rgba(15, 118, 110, 0.18);
+  border-color: rgba(13, 148, 136, 0.2);
 }
 
 .plat-card h4 {
-  font-size: 1.08rem;
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--text);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   letter-spacing: -0.01em;
 }
 
 .plat-card-categorie {
   display: inline-block;
-  background: rgba(15, 118, 110, 0.10);
+  background: var(--primary-ultra-light);
   color: var(--primary);
-  padding: 5px 10px;
-  border-radius: 999px;
-  font-size: 0.74rem;
-  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   margin-bottom: 10px;
 }
 
 .plat-card-description {
   color: var(--text-light);
-  font-size: 0.94rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
   margin-bottom: 14px;
 }
 
@@ -1210,100 +482,105 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
 }
 
 .plat-card-prix {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: var(--text);
 }
 
 .plat-card-dispo {
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--success);
 }
 
 /* =========================================================
    Loading / Error
    ========================================================= */
-.loading,
+.loading {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
 .error {
   text-align: center;
-  padding: 64px 20px;
-  font-size: 1.05rem;
-}
-
-.loading {
-  color: var(--text-light);
-}
-
-.error {
+  padding: 80px 20px;
   color: var(--error);
+  font-size: 1rem;
 }
 
 /* =========================================================
    Footer
    ========================================================= */
 .footer {
-  background: #0f1720;
-  color: #D7E0E8;
+  background: var(--text);
+  color: #D1D5DB;
   text-align: center;
   padding: 28px 20px;
-  margin-top: 72px;
-  font-size: 0.94rem;
+  margin-top: 80px;
+  font-size: 0.88rem;
 }
 
 /* =========================================================
-   Commande page
+   Page commande
    ========================================================= */
 .commande-page {
-  max-width: 840px;
+  max-width: 800px;
   margin: 40px auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 .commande-form {
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 24px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
   padding: 32px;
   border: 1px solid var(--border);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-xs);
 }
 
 .commande-form h2 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
   color: var(--text);
-  margin-bottom: 24px;
-  font-size: 1.7rem;
-  letter-spacing: -0.02em;
+  margin-bottom: 28px;
 }
 
+/* =========================================================
+   Groupes de formulaire
+   ========================================================= */
 .form-group {
   margin-bottom: 20px;
 }
 
 .form-group label {
   display: block;
+  font-size: 0.88rem;
   font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--text);
+  color: var(--text-soft);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 13px 15px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  font-size: 0.98rem;
-  font-family: inherit;
-  background: #FCFDFD;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  background: var(--surface);
   color: var(--text);
   transition:
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast),
-    background-color var(--transition-fast);
+    border-color var(--transition),
+    box-shadow var(--transition);
 }
 
 .form-group input::placeholder,
@@ -1311,16 +588,20 @@ button {
   color: var(--text-faint);
 }
 
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: #C0C4CA;
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: rgba(15, 118, 110, 0.45);
-  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.10);
-  background: #FFFFFF;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
 }
 
 .form-group textarea {
-  min-height: 120px;
+  min-height: 110px;
   resize: vertical;
 }
 
@@ -1329,105 +610,105 @@ button {
    ========================================================= */
 .plats-selection {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 12px;
-  margin-top: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
 }
 
 .plat-checkbox {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  gap: 10px;
+  padding: 13px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  background: var(--surface-soft);
+  background: var(--surface);
   transition:
-    border-color var(--transition-fast),
-    background-color var(--transition-fast),
-    box-shadow var(--transition-fast),
-    transform var(--transition-fast);
+    border-color var(--transition),
+    background var(--transition),
+    box-shadow var(--transition);
 }
 
 .plat-checkbox:hover {
-  border-color: rgba(15, 118, 110, 0.24);
-  background: #FFFFFF;
-  box-shadow: var(--shadow-xs);
-  transform: translateY(-1px);
+  border-color: rgba(13, 148, 136, 0.3);
+  background: var(--primary-ultra-light);
 }
 
 .plat-checkbox.selected {
-  border-color: rgba(15, 118, 110, 0.4);
-  background: rgba(15, 118, 110, 0.08);
-  box-shadow: 0 8px 20px rgba(15, 118, 110, 0.08);
+  border-color: var(--primary);
+  background: var(--primary-ultra-light);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.08);
 }
 
 .plat-checkbox input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   accent-color: var(--primary);
   flex-shrink: 0;
 }
 
 .plat-checkbox-info {
   flex: 1;
+  min-width: 0;
 }
 
 .plat-checkbox-info .nom {
   display: block;
-  font-weight: 700;
-  font-size: 0.96rem;
+  font-weight: 600;
+  font-size: 0.9rem;
   color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .plat-checkbox-info .prix {
   display: block;
+  font-weight: 700;
+  font-size: 0.85rem;
   color: var(--primary);
-  font-weight: 800;
-  font-size: 0.92rem;
   margin-top: 2px;
 }
 
 /* =========================================================
-   Total + bouton
+   Total + bouton commander
    ========================================================= */
 .total-section {
-  background:
-    linear-gradient(135deg, rgba(15, 118, 110, 0.10), rgba(244, 183, 64, 0.10)),
-    var(--surface-strong);
+  background: var(--primary-ultra-light);
+  border: 1px solid var(--primary-light);
   color: var(--text);
-  padding: 18px 20px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
+  padding: 16px 20px;
+  border-radius: var(--radius-sm);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 26px 0;
-  font-size: 1.08rem;
+  margin: 24px 0;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .btn-commander {
   width: 100%;
-  padding: 15px 18px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  padding: 14px 18px;
+  background: var(--primary);
   color: var(--text-inverse);
   border: none;
-  border-radius: 14px;
-  font-size: 1.05rem;
-  font-weight: 800;
-  box-shadow: 0 14px 28px rgba(15, 118, 110, 0.20);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.28);
   transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    filter var(--transition-fast);
+    background var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
 .btn-commander:hover {
+  background: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 18px 34px rgba(15, 118, 110, 0.24);
-  filter: saturate(1.04);
+  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.32);
 }
 
 .btn-commander:active {
@@ -1435,24 +716,26 @@ button {
 }
 
 .btn-commander:disabled {
-  background: #A1AAB3;
+  background: var(--text-faint);
   box-shadow: none;
   cursor: not-allowed;
+  transform: none;
 }
 
 /* =========================================================
    Messages formulaire
    ========================================================= */
 .form-message {
-  padding: 13px 16px;
-  border-radius: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
   margin-bottom: 20px;
+  font-size: 0.9rem;
   font-weight: 600;
   border: 1px solid transparent;
 }
 
 .form-message.success {
-  background: #ECFDF3;
+  background: #F0FDF4;
   color: #166534;
   border-color: #BBF7D0;
 }
@@ -1467,40 +750,41 @@ button {
    Mes commandes
    ========================================================= */
 .commandes-page {
-  max-width: 920px;
+  max-width: 900px;
   margin: 40px auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 .commandes-page h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   color: var(--text);
   margin-bottom: 24px;
-  font-size: 2rem;
-  letter-spacing: -0.03em;
 }
 
 .commandes-list {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
 }
 
 .commande-card {
-  background: rgba(255, 255, 255, 0.96);
+  background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: var(--radius);
   padding: 22px;
   box-shadow: var(--shadow-xs);
   transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    border-color var(--transition-fast);
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
 }
 
 .commande-card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
-  border-color: rgba(15, 118, 110, 0.16);
+  border-color: rgba(13, 148, 136, 0.2);
 }
 
 .commande-card-header {
@@ -1508,19 +792,20 @@ button {
   justify-content: space-between;
   align-items: flex-start;
   gap: 12px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .commande-card-header h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--text);
-  font-size: 1.12rem;
   line-height: 1.3;
 }
 
 .commande-card-details {
-  color: var(--text-light);
-  font-size: 0.95rem;
-  line-height: 1.8;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  line-height: 1.9;
 }
 
 .commande-card-footer {
@@ -1528,13 +813,13 @@ button {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  margin-top: 18px;
+  margin-top: 16px;
   padding-top: 14px;
   border-top: 1px solid var(--border);
 }
 
 .commande-montant {
-  font-size: 1.18rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: var(--text);
 }
@@ -1545,10 +830,9 @@ button {
 .statut-badge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 7px 13px;
-  border-radius: 999px;
-  font-size: 0.78rem;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.74rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -1557,14 +841,14 @@ button {
 }
 
 .statut-en-attente {
-  background: #FFF7E6;
-  color: #9A6700;
-  border-color: #F3D28B;
+  background: #FFFBEB;
+  color: #92400E;
+  border-color: #FDE68A;
 }
 
 .statut-confirmee {
   background: #EFF6FF;
-  color: #1D4ED8;
+  color: #1E40AF;
   border-color: #BFDBFE;
 }
 
@@ -1575,213 +859,65 @@ button {
 }
 
 .statut-livree {
-  background: #ECFDF3;
+  background: #F0FDF4;
   color: #166534;
   border-color: #BBF7D0;
 }
 
 .statut-annulee {
   background: #FEF2F2;
-  color: #B91C1C;
+  color: #991B1B;
   border-color: #FECACA;
 }
 
 /* =========================================================
-   Aides visuelles utiles
+   Utilitaires
    ========================================================= */
-hr,
-.divider {
+hr, .divider {
   border: 0;
   border-top: 1px solid var(--border);
   margin: 20px 0;
 }
 
 /* =========================================================
-   Mode sombre
-   Le texte standard doit garder un contraste fort, car WCAG
-   recommande au moins 4.5:1 pour le texte normal. 
+   Mode sombre (opt-in via classe ou préférence système)
    ========================================================= */
 .dark,
 .theme-dark {
-  --background: #0B1220;
-  --background-elevated: #111A2A;
-  --surface: #111C2D;
-  --surface-soft: #132031;
-  --surface-strong: #182638;
+  --background: #0B1120;
+  --surface: #111827;
+  --surface-soft: #1F2937;
+  --surface-elevated: #1F2937;
 
-  --text: #F4F7FA;
-  --text-soft: #E6EDF5;
-  --text-light: #B4C0CC;
-  --text-faint: #8B99A7;
-  --text-inverse: #FFFFFF;
+  --text: #F9FAFB;
+  --text-soft: #E5E7EB;
+  --text-light: #9CA3AF;
+  --text-faint: #6B7280;
 
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
+  --border: rgba(255,255,255,0.08);
+  --primary-ultra-light: rgba(13, 148, 136, 0.12);
+  --primary-light: rgba(13, 148, 136, 0.25);
 
-  --shadow-xs: 0 2px 8px rgba(0, 0, 0, 0.28);
-  --shadow: 0 14px 36px rgba(0, 0, 0, 0.34);
-  --shadow-lg: 0 22px 56px rgba(0, 0, 0, 0.44);
+  --shadow-xs: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow: 0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.5);
 }
 
-.dark body,
-.theme-dark body,
-body.dark {
-  background:
-    radial-gradient(circle at top left, rgba(244, 183, 64, 0.08), transparent 28%),
-    radial-gradient(circle at top right, rgba(20, 184, 166, 0.08), transparent 24%),
-    var(--background);
-  color: var(--text);
-}
-
-.dark .header,
-.theme-dark .header,
-body.dark .header {
-  background: rgba(11, 18, 32, 0.78);
-  border-bottom: 1px solid var(--border);
-}
-
-.dark .header-logo,
-.dark .header-nav a,
-.theme-dark .header-logo,
-.theme-dark .header-nav a,
-body.dark .header-logo,
-body.dark .header-nav a {
-  color: var(--text);
-}
-
-.dark .header-nav a:hover,
-.theme-dark .header-nav a:hover,
-body.dark .header-nav a:hover {
-  background: rgba(255, 255, 255, 0.07);
-  color: #5EEAD4;
-}
-
-.dark .hero::before,
-.theme-dark .hero::before,
-body.dark .hero::before {
-  background:
-    linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(244, 183, 64, 0.12)),
-    linear-gradient(180deg, #101A2A, #0E1726);
-  border-color: var(--border);
-}
-
-.dark .restaurant-card-image,
-.theme-dark .restaurant-card-image,
-body.dark .restaurant-card-image {
-  background:
-    linear-gradient(135deg, rgba(244, 183, 64, 0.18), rgba(20, 184, 166, 0.15)),
-    linear-gradient(180deg, #132132, #0F1827);
-}
-
-.dark .restaurant-card-note,
-.theme-dark .restaurant-card-note,
-body.dark .restaurant-card-note {
-  background: rgba(244, 183, 64, 0.14);
-  color: #FFD978;
-  border-color: rgba(244, 183, 64, 0.22);
-}
-
-.dark .back-link,
-.theme-dark .back-link,
-body.dark .back-link {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.dark .restaurant-detail-info span,
-.dark .restaurant-detail-info div,
-.dark .restaurant-detail-info p,
-.theme-dark .restaurant-detail-info span,
-.theme-dark .restaurant-detail-info div,
-.theme-dark .restaurant-detail-info p,
-body.dark .restaurant-detail-info span,
-body.dark .restaurant-detail-info div,
-body.dark .restaurant-detail-info p {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.dark .plat-card-categorie,
-.theme-dark .plat-card-categorie,
-body.dark .plat-card-categorie {
-  background: rgba(94, 234, 212, 0.12);
-  color: #7EEADC;
-}
-
-.dark .form-group input,
-.dark .form-group textarea,
-.theme-dark .form-group input,
-.theme-dark .form-group textarea,
-body.dark .form-group input,
-body.dark .form-group textarea {
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text);
-}
-
-.dark .total-section,
-.theme-dark .total-section,
-body.dark .total-section {
-  background:
-    linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(244, 183, 64, 0.12)),
-    var(--surface-strong);
-}
-
-.dark .footer,
-.theme-dark .footer,
-body.dark .footer {
-  background: #09101B;
-  color: #B8C4D0;
-}
-
-/* Respect préférence système si aucune classe n'est posée */
 @media (prefers-color-scheme: dark) {
   :root:not(.light):not(.theme-light) {
-    --background: #0B1220;
-    --background-elevated: #111A2A;
-    --surface: #111C2D;
-    --surface-soft: #132031;
-    --surface-strong: #182638;
-
-    --text: #F4F7FA;
-    --text-soft: #E6EDF5;
-    --text-light: #B4C0CC;
-    --text-faint: #8B99A7;
-    --text-inverse: #FFFFFF;
-
-    --border: rgba(255, 255, 255, 0.08);
-    --border-strong: rgba(255, 255, 255, 0.14);
-
-    --shadow-xs: 0 2px 8px rgba(0, 0, 0, 0.28);
-    --shadow: 0 14px 36px rgba(0, 0, 0, 0.34);
-    --shadow-lg: 0 22px 56px rgba(0, 0, 0, 0.44);
-  }
-
-  body:not(.light):not(.theme-light) {
-    background:
-      radial-gradient(circle at top left, rgba(244, 183, 64, 0.08), transparent 28%),
-      radial-gradient(circle at top right, rgba(20, 184, 166, 0.08), transparent 24%),
-      var(--background);
-    color: var(--text);
-  }
-
-  body:not(.light):not(.theme-light) .header {
-    background: rgba(11, 18, 32, 0.78);
-    border-bottom: 1px solid var(--border);
-  }
-
-  body:not(.light):not(.theme-light) .header-logo,
-  body:not(.light):not(.theme-light) .header-nav a {
-    color: var(--text);
-  }
-
-  body:not(.light):not(.theme-light) .header-nav a:hover {
-    background: rgba(255, 255, 255, 0.07);
-    color: #5EEAD4;
-  }
-
-  body:not(.light):not(.theme-light) .hero::before {
-    background:
-      linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(244, 183, 64, 0.12)),
-      linear-gradient(180deg, #101A2A, #0E1726);
-    border-color: var(--border);
+    --background: #0B1120;
+    --surface: #111827;
+    --surface-soft: #1F2937;
+    --text: #F9FAFB;
+    --text-soft: #E5E7EB;
+    --text-light: #9CA3AF;
+    --text-faint: #6B7280;
+    --border: rgba(255,255,255,0.08);
+    --primary-ultra-light: rgba(13, 148, 136, 0.12);
+    --primary-light: rgba(13, 148, 136, 0.25);
+    --shadow-xs: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow: 0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg: 0 12px 32px rgba(0,0,0,0.5);
   }
 }
 
@@ -1789,10 +925,6 @@ body.dark .footer {
    Responsive
    ========================================================= */
 @media (max-width: 900px) {
-  .header-content {
-    gap: 16px;
-  }
-
   .restaurant-detail-header {
     padding: 24px;
   }
@@ -1809,27 +941,19 @@ body.dark .footer {
   .header-content {
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding: 14px 24px;
+    height: auto;
+    gap: 8px;
   }
 
   .header-nav {
     width: 100%;
     flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .header-nav a {
-    padding: 9px 12px;
+    gap: 4px;
   }
 
   .hero {
-    padding: 52px 20px 40px;
-  }
-
-  .hero::before {
-    inset: 10px 16px 0;
-    border-radius: 24px;
+    padding: 44px 20px 36px;
   }
 
   .restaurants-grid,
@@ -1838,21 +962,8 @@ body.dark .footer {
     grid-template-columns: 1fr;
   }
 
-  .restaurant-card-body,
-  .plat-card,
-  .commande-form,
-  .commande-card {
-    padding: 18px;
-  }
-
-  .restaurant-detail-info {
-    gap: 10px;
-  }
-
-  .restaurant-card-footer,
-  .plat-card-footer {
-    flex-direction: column;
-    align-items: flex-start;
+  .commande-form {
+    padding: 20px;
   }
 }
 
@@ -1866,11 +977,11 @@ body.dark .footer {
   }
 
   .hero h1 {
-    font-size: 1.9rem;
+    font-size: 1.7rem;
   }
 
   .commande-form h2,
   .commandes-page h1 {
-    font-size: 1.55rem;
+    font-size: 1.4rem;
   }
 }
