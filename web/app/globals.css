@@ -1,21 +1,42 @@
 /* === TerrangaFood — Styles Globaux === */
 
 :root {
-  --primary: #1B4332;
-  --primary-light: #2D6A4F;
-  --accent: #52B788;
-  --accent-light: #95D5B2;
-  --background: #FAFFF7;
+  /* Primary palette (used for headings, accents, surfaces) */
+  --primary: #0F172A; /* deep midnight blue for an elegant base */
+  --primary-light: #172554;
+
+  /* Golden accents (elegant doré) */
+  --gold-50: #FFFBF0;
+  --gold-100: #FEF3C7;
+  --gold-200: #FDE68A;
+  --gold-300: #FCD34D;
+  --gold-500: #D4AF37; /* gold */
+  --gold-700: #A67C00;
+
+  /* Accent defaults (can be swapped by theme classes) */
+  --accent: var(--gold-500);
+  --accent-light: var(--gold-200);
+
+  /* Surface / background */
+  --background: #FBFBFD; /* very light neutral */
   --surface: #FFFFFF;
-  --text: #1A1A1A;
+
+  /* Text */
+  --text: #0B1220; /* near-black for good contrast */
   --text-light: #6B7280;
-  --border: #E5E7EB;
+
+  --border: #E6E7EB;
   --error: #E76F51;
   --warning: #F4A261;
   --success: #2D6A4F;
+
+  /* Layout tokens */
   --radius: 12px;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow: 0 4px 16px rgba(2,8,23,0.06);
+  --shadow-lg: 0 12px 36px rgba(2,8,23,0.12);
+
+  /* Motion */
+  --transition-fast: 180ms cubic-bezier(.2,.9,.2,1);
 }
 
 * {
@@ -578,4 +599,75 @@ a:hover {
 .statut-annulee {
   background: #FEE2E2;
   color: #991B1B;
+}
+
+/* ================================ */
+/* Thèmes : doré élégant & mode sombre */
+/* ================================ */
+
+/* Smooth color transitions for theme changes */
+body {
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+/* Golden theme helper: can be applied with a top-level class `theme-gold` */
+.theme-gold {
+  --accent: var(--gold-500);
+  --accent-light: var(--gold-200);
+  --primary: #071125; /* very dark navy to contrast gold */
+  --primary-light: #13233d;
+  --surface: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,248,244,0.98));
+  --shadow: 0 8px 30px rgba(2,6,23,0.12);
+}
+
+/* Explicit dark mode class (also supported via prefers-color-scheme) */
+.dark,
+.theme-dark {
+  --background: #071122;
+  --surface: #071529;
+  --text: #E6EEF6;
+  --text-light: #9FB0C4;
+  --border: rgba(255,255,255,0.06);
+  --accent: var(--gold-300);
+  --accent-light: var(--gold-50);
+  --shadow: 0 10px 40px rgba(0,0,0,0.6);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.7);
+}
+
+/* Respect user's system preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #071122;
+    --surface: #071529;
+    --text: #E6EEF6;
+    --text-light: #9FB0C4;
+    --border: rgba(255,255,255,0.06);
+    --accent: var(--gold-300);
+    --accent-light: var(--gold-50);
+    --shadow: 0 8px 30px rgba(0,0,0,0.6);
+  }
+}
+
+/* Small component refinements to highlight the golden aesthetic */
+.header {
+  background: linear-gradient(90deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 40%, black 20%) 100%);
+}
+
+.restaurant-card-image {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 70%, var(--primary) 30%) 0%, var(--primary-light) 100%);
+}
+
+.btn-commander {
+  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 60%, var(--primary) 40%));
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--accent) 30%, black 80%);
+}
+
+.restaurant-card-note {
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  color: #081018;
+}
+
+/* Ensure badges remain legible in dark/gold modes */
+.statut-badge {
+  color: inherit;
 }
