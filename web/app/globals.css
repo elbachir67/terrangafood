@@ -671,3 +671,1169 @@ body {
 .statut-badge {
   color: inherit;
 }
+/* =========================================================
+   TerrangaFood — Style moderne, clair, intuitif
+   Direction:
+   - fond clair et respirant
+   - cartes blanches avec bordures douces
+   - texte très lisible
+   - vert principal pour les actions
+   - doré seulement en accent premium
+   ========================================================= */
+
+:root {
+  /* Palette principale */
+  --primary: #0F766E;
+  --primary-hover: #0B5E59;
+  --primary-light: #CCFBF1;
+
+  --accent: #F4B740;
+  --accent-hover: #D99A1D;
+  --accent-light: #FFF3D6;
+
+  /* Fonds */
+  --background: #F8FAF8;
+  --background-elevated: #F1F5F2;
+  --surface: #FFFFFF;
+  --surface-soft: #F9FBFA;
+  --surface-strong: #ECF3F1;
+
+  /* Texte */
+  --text: #17212B;
+  --text-soft: #2E3A46;
+  --text-light: #5F6B76;
+  --text-faint: #8A96A3;
+  --text-inverse: #FFFFFF;
+
+  /* Etats */
+  --border: #E4E8EC;
+  --border-strong: #D6DDE3;
+  --error: #DC2626;
+  --warning: #D97706;
+  --success: #16A34A;
+  --info: #2563EB;
+
+  /* Layout */
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 22px;
+  --radius-full: 999px;
+
+  /* Ombres */
+  --shadow-xs: 0 2px 6px rgba(15, 23, 42, 0.04);
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 20px 48px rgba(15, 23, 42, 0.14);
+
+  /* Motion */
+  --transition-fast: 180ms cubic-bezier(.2,.9,.2,1);
+  --transition-slow: 280ms cubic-bezier(.2,.9,.2,1);
+
+  /* Typographie */
+  --font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+
+  /* Largeurs */
+  --container: 1200px;
+}
+
+/* =========================================================
+   Reset
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background:
+    radial-gradient(circle at top left, rgba(244, 183, 64, 0.08), transparent 28%),
+    radial-gradient(circle at top right, rgba(15, 118, 110, 0.08), transparent 24%),
+    var(--background);
+  color: var(--text);
+  line-height: 1.6;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: rgba(15, 118, 110, 0.18);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 3px solid rgba(15, 118, 110, 0.24);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* =========================================================
+   Layout
+   ========================================================= */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(228, 232, 236, 0.9);
+  box-shadow: var(--shadow-xs);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 16px 20px;
+  min-height: 76px;
+}
+
+.header-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.header-logo span {
+  color: var(--primary);
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-nav a {
+  color: var(--text-soft);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  border-radius: 999px;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.header-nav a:hover {
+  color: var(--primary);
+  background: rgba(15, 118, 110, 0.08);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero {
+  position: relative;
+  padding: 72px 20px 56px;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 18px 20px 0;
+  max-width: var(--container);
+  margin: 0 auto;
+  border-radius: 30px;
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.10), rgba(244, 183, 64, 0.10)),
+    linear-gradient(180deg, #ffffff, #f7fbfa);
+  border: 1px solid rgba(228, 232, 236, 0.95);
+  box-shadow: var(--shadow);
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.hero p {
+  font-size: 1.08rem;
+  color: var(--text-light);
+  max-width: 660px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   Restaurants grid
+   ========================================================= */
+.restaurants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 0 20px;
+  max-width: var(--container);
+  margin: 0 auto 64px;
+}
+
+/* =========================================================
+   Restaurant card
+   ========================================================= */
+.restaurant-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: rgba(15, 118, 110, 0.18);
+}
+
+.restaurant-card-image {
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  background:
+    linear-gradient(135deg, rgba(244, 183, 64, 0.24), rgba(15, 118, 110, 0.18)),
+    linear-gradient(180deg, #fffef9, #eef7f5);
+  color: var(--text);
+}
+
+.restaurant-card-body {
+  padding: 20px;
+}
+
+.restaurant-card-body h3 {
+  font-size: 1.18rem;
+  line-height: 1.3;
+  margin-bottom: 6px;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.restaurant-card-cuisine {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.restaurant-card-address {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.restaurant-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.restaurant-card-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-light);
+  color: #8A5B00;
+  border: 1px solid rgba(244, 183, 64, 0.35);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.restaurant-card-status {
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.restaurant-card-status::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.10);
+}
+
+.status-open {
+  color: var(--success);
+}
+
+.status-closed {
+  color: var(--error);
+}
+
+.status-closed::before {
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.10);
+}
+
+/* =========================================================
+   Restaurant detail
+   ========================================================= */
+.restaurant-detail {
+  max-width: 920px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-soft);
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--border);
+}
+
+.back-link:hover {
+  color: var(--primary);
+  border-color: rgba(15, 118, 110, 0.22);
+  background: rgba(15, 118, 110, 0.06);
+}
+
+.restaurant-detail-header {
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.10), rgba(244, 183, 64, 0.12)),
+    var(--surface);
+  color: var(--text);
+  padding: 34px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  margin-bottom: 34px;
+}
+
+.restaurant-detail-header h1 {
+  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+  line-height: 1.15;
+  margin-bottom: 8px;
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
+.restaurant-detail-info {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.restaurant-detail-info span,
+.restaurant-detail-info div,
+.restaurant-detail-info p {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(228, 232, 236, 0.9);
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+/* =========================================================
+   Plats
+   ========================================================= */
+.plats-section h2 {
+  font-size: 1.55rem;
+  color: var(--text);
+  margin-bottom: 22px;
+  letter-spacing: -0.02em;
+}
+
+.plats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.plat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-xs);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.plat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: rgba(15, 118, 110, 0.18);
+}
+
+.plat-card h4 {
+  font-size: 1.08rem;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.plat-card-categorie {
+  display: inline-block;
+  background: rgba(15, 118, 110, 0.10);
+  color: var(--primary);
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.plat-card-description {
+  color: var(--text-light);
+  font-size: 0.94rem;
+  margin-bottom: 14px;
+}
+
+.plat-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.plat-card-prix {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.plat-card-dispo {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--success);
+}
+
+/* =========================================================
+   Loading / Error
+   ========================================================= */
+.loading,
+.error {
+  text-align: center;
+  padding: 64px 20px;
+  font-size: 1.05rem;
+}
+
+.loading {
+  color: var(--text-light);
+}
+
+.error {
+  color: var(--error);
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.footer {
+  background: #0f1720;
+  color: #D7E0E8;
+  text-align: center;
+  padding: 28px 20px;
+  margin-top: 72px;
+  font-size: 0.94rem;
+}
+
+/* =========================================================
+   Commande page
+   ========================================================= */
+.commande-page {
+  max-width: 840px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.commande-form {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.commande-form h2 {
+  color: var(--text);
+  margin-bottom: 24px;
+  font-size: 1.7rem;
+  letter-spacing: -0.02em;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 0.98rem;
+  font-family: inherit;
+  background: #FCFDFD;
+  color: var(--text);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-faint);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgba(15, 118, 110, 0.45);
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.10);
+  background: #FFFFFF;
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* =========================================================
+   Sélection plats
+   ========================================================= */
+.plats-selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.plat-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  cursor: pointer;
+  background: var(--surface-soft);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.plat-checkbox:hover {
+  border-color: rgba(15, 118, 110, 0.24);
+  background: #FFFFFF;
+  box-shadow: var(--shadow-xs);
+  transform: translateY(-1px);
+}
+
+.plat-checkbox.selected {
+  border-color: rgba(15, 118, 110, 0.4);
+  background: rgba(15, 118, 110, 0.08);
+  box-shadow: 0 8px 20px rgba(15, 118, 110, 0.08);
+}
+
+.plat-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  flex-shrink: 0;
+}
+
+.plat-checkbox-info {
+  flex: 1;
+}
+
+.plat-checkbox-info .nom {
+  display: block;
+  font-weight: 700;
+  font-size: 0.96rem;
+  color: var(--text);
+}
+
+.plat-checkbox-info .prix {
+  display: block;
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 0.92rem;
+  margin-top: 2px;
+}
+
+/* =========================================================
+   Total + bouton
+   ========================================================= */
+.total-section {
+  background:
+    linear-gradient(135deg, rgba(15, 118, 110, 0.10), rgba(244, 183, 64, 0.10)),
+    var(--surface-strong);
+  color: var(--text);
+  padding: 18px 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 26px 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.btn-commander {
+  width: 100%;
+  padding: 15px 18px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 14px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  box-shadow: 0 14px 28px rgba(15, 118, 110, 0.20);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+.btn-commander:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(15, 118, 110, 0.24);
+  filter: saturate(1.04);
+}
+
+.btn-commander:active {
+  transform: translateY(0);
+}
+
+.btn-commander:disabled {
+  background: #A1AAB3;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   Messages formulaire
+   ========================================================= */
+.form-message {
+  padding: 13px 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.form-message.success {
+  background: #ECFDF3;
+  color: #166534;
+  border-color: #BBF7D0;
+}
+
+.form-message.error {
+  background: #FEF2F2;
+  color: #991B1B;
+  border-color: #FECACA;
+}
+
+/* =========================================================
+   Mes commandes
+   ========================================================= */
+.commandes-page {
+  max-width: 920px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.commandes-page h1 {
+  color: var(--text);
+  margin-bottom: 24px;
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+}
+
+.commandes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.commande-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: var(--shadow-xs);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.commande-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: rgba(15, 118, 110, 0.16);
+}
+
+.commande-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.commande-card-header h3 {
+  color: var(--text);
+  font-size: 1.12rem;
+  line-height: 1.3;
+}
+
+.commande-card-details {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.commande-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.commande-montant {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+/* =========================================================
+   Badges statut
+   ========================================================= */
+.statut-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 13px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.statut-en-attente {
+  background: #FFF7E6;
+  color: #9A6700;
+  border-color: #F3D28B;
+}
+
+.statut-confirmee {
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border-color: #BFDBFE;
+}
+
+.statut-en-livraison {
+  background: #F5F3FF;
+  color: #6D28D9;
+  border-color: #DDD6FE;
+}
+
+.statut-livree {
+  background: #ECFDF3;
+  color: #166534;
+  border-color: #BBF7D0;
+}
+
+.statut-annulee {
+  background: #FEF2F2;
+  color: #B91C1C;
+  border-color: #FECACA;
+}
+
+/* =========================================================
+   Aides visuelles utiles
+   ========================================================= */
+hr,
+.divider {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+/* =========================================================
+   Mode sombre
+   Le texte standard doit garder un contraste fort, car WCAG
+   recommande au moins 4.5:1 pour le texte normal. 
+   ========================================================= */
+.dark,
+.theme-dark {
+  --background: #0B1220;
+  --background-elevated: #111A2A;
+  --surface: #111C2D;
+  --surface-soft: #132031;
+  --surface-strong: #182638;
+
+  --text: #F4F7FA;
+  --text-soft: #E6EDF5;
+  --text-light: #B4C0CC;
+  --text-faint: #8B99A7;
+  --text-inverse: #FFFFFF;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  --shadow-xs: 0 2px 8px rgba(0, 0, 0, 0.28);
+  --shadow: 0 14px 36px rgba(0, 0, 0, 0.34);
+  --shadow-lg: 0 22px 56px rgba(0, 0, 0, 0.44);
+}
+
+.dark body,
+.theme-dark body,
+body.dark {
+  background:
+    radial-gradient(circle at top left, rgba(244, 183, 64, 0.08), transparent 28%),
+    radial-gradient(circle at top right, rgba(20, 184, 166, 0.08), transparent 24%),
+    var(--background);
+  color: var(--text);
+}
+
+.dark .header,
+.theme-dark .header,
+body.dark .header {
+  background: rgba(11, 18, 32, 0.78);
+  border-bottom: 1px solid var(--border);
+}
+
+.dark .header-logo,
+.dark .header-nav a,
+.theme-dark .header-logo,
+.theme-dark .header-nav a,
+body.dark .header-logo,
+body.dark .header-nav a {
+  color: var(--text);
+}
+
+.dark .header-nav a:hover,
+.theme-dark .header-nav a:hover,
+body.dark .header-nav a:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #5EEAD4;
+}
+
+.dark .hero::before,
+.theme-dark .hero::before,
+body.dark .hero::before {
+  background:
+    linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(244, 183, 64, 0.12)),
+    linear-gradient(180deg, #101A2A, #0E1726);
+  border-color: var(--border);
+}
+
+.dark .restaurant-card-image,
+.theme-dark .restaurant-card-image,
+body.dark .restaurant-card-image {
+  background:
+    linear-gradient(135deg, rgba(244, 183, 64, 0.18), rgba(20, 184, 166, 0.15)),
+    linear-gradient(180deg, #132132, #0F1827);
+}
+
+.dark .restaurant-card-note,
+.theme-dark .restaurant-card-note,
+body.dark .restaurant-card-note {
+  background: rgba(244, 183, 64, 0.14);
+  color: #FFD978;
+  border-color: rgba(244, 183, 64, 0.22);
+}
+
+.dark .back-link,
+.theme-dark .back-link,
+body.dark .back-link {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dark .restaurant-detail-info span,
+.dark .restaurant-detail-info div,
+.dark .restaurant-detail-info p,
+.theme-dark .restaurant-detail-info span,
+.theme-dark .restaurant-detail-info div,
+.theme-dark .restaurant-detail-info p,
+body.dark .restaurant-detail-info span,
+body.dark .restaurant-detail-info div,
+body.dark .restaurant-detail-info p {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dark .plat-card-categorie,
+.theme-dark .plat-card-categorie,
+body.dark .plat-card-categorie {
+  background: rgba(94, 234, 212, 0.12);
+  color: #7EEADC;
+}
+
+.dark .form-group input,
+.dark .form-group textarea,
+.theme-dark .form-group input,
+.theme-dark .form-group textarea,
+body.dark .form-group input,
+body.dark .form-group textarea {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+}
+
+.dark .total-section,
+.theme-dark .total-section,
+body.dark .total-section {
+  background:
+    linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(244, 183, 64, 0.12)),
+    var(--surface-strong);
+}
+
+.dark .footer,
+.theme-dark .footer,
+body.dark .footer {
+  background: #09101B;
+  color: #B8C4D0;
+}
+
+/* Respect préférence système si aucune classe n'est posée */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not(.theme-light) {
+    --background: #0B1220;
+    --background-elevated: #111A2A;
+    --surface: #111C2D;
+    --surface-soft: #132031;
+    --surface-strong: #182638;
+
+    --text: #F4F7FA;
+    --text-soft: #E6EDF5;
+    --text-light: #B4C0CC;
+    --text-faint: #8B99A7;
+    --text-inverse: #FFFFFF;
+
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.14);
+
+    --shadow-xs: 0 2px 8px rgba(0, 0, 0, 0.28);
+    --shadow: 0 14px 36px rgba(0, 0, 0, 0.34);
+    --shadow-lg: 0 22px 56px rgba(0, 0, 0, 0.44);
+  }
+
+  body:not(.light):not(.theme-light) {
+    background:
+      radial-gradient(circle at top left, rgba(244, 183, 64, 0.08), transparent 28%),
+      radial-gradient(circle at top right, rgba(20, 184, 166, 0.08), transparent 24%),
+      var(--background);
+    color: var(--text);
+  }
+
+  body:not(.light):not(.theme-light) .header {
+    background: rgba(11, 18, 32, 0.78);
+    border-bottom: 1px solid var(--border);
+  }
+
+  body:not(.light):not(.theme-light) .header-logo,
+  body:not(.light):not(.theme-light) .header-nav a {
+    color: var(--text);
+  }
+
+  body:not(.light):not(.theme-light) .header-nav a:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #5EEAD4;
+  }
+
+  body:not(.light):not(.theme-light) .hero::before {
+    background:
+      linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(244, 183, 64, 0.12)),
+      linear-gradient(180deg, #101A2A, #0E1726);
+    border-color: var(--border);
+  }
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 900px) {
+  .header-content {
+    gap: 16px;
+  }
+
+  .restaurant-detail-header {
+    padding: 24px;
+  }
+
+  .commande-card-header,
+  .commande-card-footer,
+  .total-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 680px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .header-nav {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .header-nav a {
+    padding: 9px 12px;
+  }
+
+  .hero {
+    padding: 52px 20px 40px;
+  }
+
+  .hero::before {
+    inset: 10px 16px 0;
+    border-radius: 24px;
+  }
+
+  .restaurants-grid,
+  .plats-grid,
+  .plats-selection {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-card-body,
+  .plat-card,
+  .commande-form,
+  .commande-card {
+    padding: 18px;
+  }
+
+  .restaurant-detail-info {
+    gap: 10px;
+  }
+
+  .restaurant-card-footer,
+  .plat-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  .container,
+  .restaurant-detail,
+  .commande-page,
+  .commandes-page {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .commande-form h2,
+  .commandes-page h1 {
+    font-size: 1.55rem;
+  }
+}

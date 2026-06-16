@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
         <Header />
         <main>{children}</main>
         <footer className="footer">
-          <p>🍛 TerrangaFood — Projet Architecture Logicielle 2 — UCAD / ESP</p>
+          <p>🍛 TerrangaFood —les-sentinelles</p>
         </footer>
       </body>
     </html>
