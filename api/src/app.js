@@ -35,6 +35,32 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
+
+// Configuration CORS sécurisée
+const corsOptions = {
+  origin: [
+    'http://localhost:3000',  // Frontend en développement local
+    'http://web:3000',        // Frontend dans Docker (si nécessaire)
+    'http://127.0.0.1:3000',  // Alternative pour localhost
+    'https://terrangafood-les-sentinelles-9to4.vercel.app',  // Frontend Vercel
+    process.env.FRONTEND_URL   // URL Vercel en production (si définie)
+  ].filter(Boolean),  // Enlever les undefined
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true  // Si vous utilisez des cookies/authentification
+};
+ 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 // --- Middleware globaux ---
 
 app.use(express.json());

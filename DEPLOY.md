@@ -26,7 +26,7 @@
 ## 2. Render (API Express)
 
 - Service : terrangafood-api-les-sentinelles
-- URL : https://terrangafood-api-les-sentinelles.onrender.com
+- URL : https://terrangafood-les-sentinelles-rsck.onrender.com
 - Root Directory : api
 - Runtime : Node
 - Instance : Free
@@ -34,7 +34,7 @@
 
 ## 4. Vercel (Frontend Next.js)
 - Projet : terrangafood-les-sentinelles
-- URL : https://terrangafood-les-sentinelles.vercel.app
+- URL : https://terrangafood-les-sentinelles-9to4.vercel.app
 - Root Directory : web
 - Framework : Next.js (auto-détecté)
 - Variable : NEXT_PUBLIC_API_URL (URL Render + /api)
