@@ -8,12 +8,21 @@ const helmet = require('helmet');
 // 1. Import des routes (Assure-toi que ces fichiers existent dans ./routes/)
 const restaurantRoutes = require('./routes/restaurants');
 const platRoutes = require('./routes/plats');
+const commandeRoutes = require('./routes/commandes');
 
 // 2. Import du middleware de gestion d'erreurs
 const errorHandler = require('./middleware/errorHandler');
 
-// Charger les variables d'environnement
-dotenv.config(); 
+// Charger .env seulement en développement local
+// En Docker, les variables sont injectées par docker-compose via 'environment'
+const path = require('path');
+const fs = require('fs');
+const envPath = path.resolve(__dirname, '../../.env');
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+} else {
+  dotenv.config();
+}
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -32,7 +41,8 @@ app.get('/', (req, res) => {
     version: '1.0.0',
     endpoints: {
       restaurants: '/api/restaurants',
-      plats: '/api/plats'
+      plats: '/api/plats',
+      commandes: '/api/commandes'
     }
   });
 });
@@ -40,6 +50,7 @@ app.get('/', (req, res) => {
 // Branchement des routes spécifiques
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/plats', platRoutes);
+app.use('/api/commandes', commandeRoutes);
 
 // --- 5. Gestion des erreurs (Toujours après les routes) ---
 app.use(errorHandler);
