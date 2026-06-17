@@ -1,8 +1,13 @@
-# 🍛 TerrangaFood
+# TerrangaFood - Les Heros
 
-Plateforme de commande de plats auprès de restaurants dakarois.
+Plateforme de commande et livraison de plats senegalais a Dakar.
 
-**Projet pédagogique** — Architecture Logicielle 2 — L3 Génie Logiciel — UCAD / ESP
+**Projet pedagogique** — Architecture Logicielle 2 — L3 Genie Logiciel — UCAD / ESP
+
+## URLs de production
+
+- **Frontend** : https://terrangafood-les-heros.vercel.app
+- **API** : https://terrangafood-api-les-heros.onrender.com
 
 ## Stack technique
 
