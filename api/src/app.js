@@ -3,53 +3,74 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
+const helmet = require('helmet');
 
+// 1. Import des routes (Assure-toi que ces fichiers existent dans ./routes/)
 const restaurantRoutes = require('./routes/restaurants');
 const platRoutes = require('./routes/plats');
+const commandeRoutes = require('./routes/commandes');
+
+// 2. Import du middleware de gestion d'erreurs
 const errorHandler = require('./middleware/errorHandler');
 
-// Charger les variables d'environnement
-dotenv.config({ path: '../.env' });
+// Charger .env seulement en développement local
+// En Docker, les variables sont injectées par docker-compose via 'environment'
+const path = require('path');
+const fs = require('fs');
+const envPath = path.resolve(__dirname, '../../.env');
+if (fs.existsSync(envPath)) {
+  dotenv.config({ path: envPath });
+} else {
+  dotenv.config();
+}
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// --- Middleware globaux ---
-app.use(cors());
-app.use(express.json());
-app.use(morgan('dev'));
+// --- 3. Middlewares Globaux ---
+app.use(helmet()); // Sécurise les headers HTTP
+app.use(cors()); // Autorise les requêtes cross-origin
+app.use(express.json()); // Parse le JSON dans req.body
+app.use(morgan('dev')); // Log les requêtes dans la console
 
-// --- Routes ---
+// --- 4. Routes de base ---
 app.get('/', (req, res) => {
-  res.json({
+  res.status(200).json({
+    success: true,
     message: 'Bienvenue sur l\'API TerrangaFood 🍛',
-    version: '0.0.0',
+    version: '1.0.0',
     endpoints: {
       restaurants: '/api/restaurants',
-      plats: '/api/plats'
+      plats: '/api/plats',
+      commandes: '/api/commandes'
     }
   });
 });
 
+// Branchement des routes spécifiques
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/plats', platRoutes);
+app.use('/api/commandes', commandeRoutes);
 
-// --- Gestion des erreurs ---
+// --- 5. Gestion des erreurs (Toujours après les routes) ---
 app.use(errorHandler);
 
-// --- Connexion MongoDB et démarrage ---
+// --- 6. Connexion MongoDB et Démarrage du serveur ---
+mongoose.set('strictQuery', false); // Prépare les futures versions de Mongoose
+
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
-    console.log('✅ Connecté à MongoDB avec succès');
+    console.log('✅ Connexion à MongoDB réussie !');
     app.listen(PORT, () => {
-      console.log(`🚀 Serveur démarré sur le port ${PORT}`);
-      console.log(`📍 http://localhost:${PORT}`);
+      console.log(`🚀 Serveur opérationnel sur : http://localhost:${PORT}`);
+      console.log('Faites chauffer les fourneaux ! 👨‍🍳');
     });
   })
   .catch((err) => {
-    console.error('❌ Erreur de connexion à MongoDB :', err.message);
-    process.exit(1);
+    console.error('❌ Échec de la connexion à MongoDB :', err.message);
+    process.exit(1); // Arrête le processus en cas d'échec critique
   });
 
+// Export pour les tests ou d'autres modules
 module.exports = app;
